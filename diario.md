@@ -12,18 +12,14 @@ Participantes:
 </ul>
 
 <p>
-Assunto:
-</p>
-<p>
-Durante a 1º reunião do grupo decidimos qual função cada um irá exercer no
-grupo, ficou decidido:
-João Pedro (PO e Back-End)
-Davi Bonelli (Back-End)
-Davi Samuel (Front-End)
-Izabela Kerollayne (Front-End)
-Juan Felipe (Documentação e Testes)
-Terminamos também de produzir o Diagrama de Casos de Uso no qual foi
-definido os atores e as funções que cada ator irá desempenhar no sistema
+Assunto:<br>
+Durante a 1º reunião do grupo decidimos qual função cada um irá exercer no grupo, ficou decidido:<br>
+João Pedro (PO e Back-End)<br>
+Davi Bonelli (Back-End)<br>
+Davi Samuel (Front-End)<br>
+Izabela Kerollayne (Front-End)<br>
+Juan Felipe (Documentação e Testes)<br>
+Terminamos também de produzir o Diagrama de Casos de Uso no qual foi definido os atores e as funções que cada ator irá desempenhar no sistema
 </p>
 
 
