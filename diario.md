@@ -3,10 +3,14 @@
 <h2>29/09/2024</h2>
 <p>
 Participantes:
-DAVI BONELLI RODRIGUES
-DAVI SAMUEL SCHWARTZ
-IZABELA KEROLLAYNE PEREIRA SOUZA
-JOAO PEDRO PEREIRA DOS SANTOS
+</p>
+<ul>
+  <li>DAVI BONELLI RODRIGUES</li>
+  <li>DAVI SAMUEL SCHWARTZ</li>
+  <li>IZABELA KEROLLAYNE PEREIRA SOUZA</li>
+  <li>JOAO PEDRO PEREIRA DOS SANTOS</li>
+</ul>
+
 Assunto:
 Durante a 1º reunião do grupo decidimos qual função cada um irá exercer no
 grupo, ficou decidido:
