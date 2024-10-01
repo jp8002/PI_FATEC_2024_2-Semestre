@@ -11,7 +11,10 @@ Participantes:
   <li>JOAO PEDRO PEREIRA DOS SANTOS</li>
 </ul>
 
+<p>
 Assunto:
+</p>
+<p>
 Durante a 1º reunião do grupo decidimos qual função cada um irá exercer no
 grupo, ficou decidido:
 João Pedro (PO e Back-End)
@@ -22,3 +25,5 @@ Juan Felipe (Documentação e Testes)
 Terminamos também de produzir o Diagrama de Casos de Uso no qual foi
 definido os atores e as funções que cada ator irá desempenhar no sistema
 </p>
+
+
