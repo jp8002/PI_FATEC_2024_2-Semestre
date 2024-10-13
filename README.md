@@ -1,3 +1,4 @@
+<img src="./imagens/logo.png" />
 # SISTEMA PARA ALMOXARIFADO
 
 <h2>DESCRIÇÃO</h2> 
