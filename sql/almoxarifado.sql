@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/10/2024 às 17:40
+-- Tempo de geração: 13/10/2024 às 16:12
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -44,7 +44,7 @@ CREATE TABLE `almoxarife` (
 CREATE TABLE `epis` (
   `id` int(10) UNSIGNED NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `CA` varchar(7) UNSIGNED NOT NULL,
+  `CA` varchar(20) NOT NULL,
   `unidade` varchar(20) NOT NULL,
   `estoque` int(10) UNSIGNED NOT NULL,
   `minimo` int(10) UNSIGNED NOT NULL,
@@ -54,26 +54,16 @@ CREATE TABLE `epis` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `funcionarios`
---
-
-CREATE TABLE `funcionarios` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `nome` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estrutura para tabela `funcionarios_retira_epis`
 --
 
 CREATE TABLE `funcionarios_retira_epis` (
-  `funcionarios_id` int(10) UNSIGNED NOT NULL,
-  `EPIs_id` int(10) UNSIGNED NOT NULL,
-  `Almoxarife_id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `epis_id` int(10) UNSIGNED NOT NULL,
+  `almoxarife_id` int(10) UNSIGNED NOT NULL,
   `data_retirada` date NOT NULL,
-  `quantidade` int(10) UNSIGNED NOT NULL
+  `quantidade` int(10) UNSIGNED NOT NULL,
+  `nome_funcionario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -90,23 +80,15 @@ ALTER TABLE `almoxarife`
 -- Índices de tabela `epis`
 --
 ALTER TABLE `epis`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `CA` (`CA`);
-
---
--- Índices de tabela `funcionarios`
---
-ALTER TABLE `funcionarios`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `funcionarios_retira_epis`
 --
 ALTER TABLE `funcionarios_retira_epis`
-  ADD PRIMARY KEY (`funcionarios_id`,`EPIs_id`),
-  ADD KEY `funcionarios_has_EPIs_FKIndex1` (`funcionarios_id`),
-  ADD KEY `funcionarios_has_EPIs_FKIndex2` (`EPIs_id`),
-  ADD KEY `funcionarios_retira_EPIs_FKIndex3` (`Almoxarife_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `funcionarios_has_EPIs_FKIndex2` (`epis_id`),
+  ADD KEY `funcionarios_retira_EPIs_FKIndex3` (`almoxarife_id`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -122,12 +104,12 @@ ALTER TABLE `almoxarife`
 -- AUTO_INCREMENT de tabela `epis`
 --
 ALTER TABLE `epis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `funcionarios`
+-- AUTO_INCREMENT de tabela `funcionarios_retira_epis`
 --
-ALTER TABLE `funcionarios`
+ALTER TABLE `funcionarios_retira_epis`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -138,9 +120,8 @@ ALTER TABLE `funcionarios`
 -- Restrições para tabelas `funcionarios_retira_epis`
 --
 ALTER TABLE `funcionarios_retira_epis`
-  ADD CONSTRAINT `funcionarios_retira_epis_ibfk_1` FOREIGN KEY (`funcionarios_id`) REFERENCES `funcionarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `funcionarios_retira_epis_ibfk_2` FOREIGN KEY (`EPIs_id`) REFERENCES `epis` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `funcionarios_retira_epis_ibfk_3` FOREIGN KEY (`Almoxarife_id`) REFERENCES `almoxarife` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `funcionarios_retira_epis_ibfk_1` FOREIGN KEY (`epis_id`) REFERENCES `epis` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `funcionarios_retira_epis_ibfk_2` FOREIGN KEY (`almoxarife_id`) REFERENCES `almoxarife` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
