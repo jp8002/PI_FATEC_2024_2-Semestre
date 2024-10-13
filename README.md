@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./imagens/logo.png" alt="DOT logo"/>
+  <img src="./imagens/logo.png" alt="DOT logo" width="200"/>
   <h1>DOT</h1>
   <h2>SISTEMA PARA ALMOXARIFADO</h2>
 </div>
