@@ -1,6 +1,7 @@
 <?php
 	class conexao{
 		public $conn;
+		public $stmt;
 
 		public function __construct(){
 			$url = "localhost";
@@ -17,8 +18,8 @@
 
 		public function adicionar($nome,$ca,$uni,$estoque,$min,$val){
 			try{
-				$stmt = $this->conn->prepare("INSERT INTO epis values ('',:nome,:ca,:uni,:estoque,:min,:val)");
-				$stmt -> execute([
+				$this->stmt = $this->conn->prepare("INSERT INTO epis values ('',:nome,:ca,:uni,:estoque,:min,:val)");
+				$this->stmt -> execute([
 							':nome' => $nome,
 							':ca' => $ca,
 							':uni' => $uni,
@@ -35,11 +36,16 @@
 		}
 
 		public function atualizar_estoque($nome, $estoque){
-				$stmt = $this->conn->prepare("UPDATE epis SET estoque = :estoque WHERE nome = :nome");
+				$this->stmt = $this->conn->prepare("UPDATE epis SET estoque = :estoque WHERE nome = :nome");
 				$stmt->execute([
 					':estoque' => $estoque,
 					':nome' => $nome
 				]);
+		}
+
+		public function ver_saidas(){
+			$this->stmt = $this->conn->prepare("SELECT fr.nome_funcionario, e.nome, fr.quantidade, fr.data_retirada, a.usuario FROM funcionarios_retira_epis fr, almoxarife a, epis e WHERE fr.epis_id = e.id and fr.almoxarife_id = a.id;");
+			$this->stmt->execute();
 		}
 
 		function __destruct() {
@@ -48,11 +54,6 @@
 	}
 	
 
-	/*
-
-	$pdo = new conexao();
-
-	$pdo->adicionar('carlos',12354,'par',12,23,'2018-06-24');
-*/
+	
 
 ?>
