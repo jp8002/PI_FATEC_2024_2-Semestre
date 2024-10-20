@@ -53,3 +53,19 @@ Participantes:
 Assunto:<br>
 Durante a 3º reunião do grupo realizamos a estrega do logo e nome da nossa empresa juntamente com um protótipo de tela de login, foi adicionado também a função de listar os epis. 
 </p>
+
+<h2>20/10/2024</h2>
+<p>
+Participantes:
+</p>
+<ul>
+  <li>DAVI BONELLI RODRIGUES</li>
+  <li>DAVI SAMUEL SCHWARTZ</li>
+  <li>IZABELA KEROLLAYNE PEREIRA SOUZA</li>
+  <li>JOAO PEDRO PEREIRA DOS SANTOS</li>
+</ul>
+
+<p>
+Assunto:<br>
+Durante a 4º reunião do grupo entregamos as funçoes de saida de EPI's, consultar estoque e cadastro e login de usuário dinâmico, avançamos a documentação e definimos as próximas funcionalidades a serem implementadas.
+</p>
