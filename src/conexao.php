@@ -35,17 +35,24 @@
 
 		}
 
-		public function atualizar_estoque($nome, $estoque){
-				$this->stmt = $this->conn->prepare("UPDATE epis SET estoque = :estoque WHERE nome = :nome");
-				$stmt->execute([
+		public function compra_estoque($nome, $estoque){
+				$this->stmt = $this->conn->prepare("UPDATE epis SET estoque = estoque + :estoque WHERE nome = :nome");
+				$this->stmt->execute([
 					':estoque' => $estoque,
 					':nome' => $nome
 				]);
 		}
 
 		public function ver_saidas(){
-			$this->stmt = $this->conn->prepare("SELECT fr.nome_funcionario, e.nome, fr.quantidade, fr.data_retirada, a.usuario FROM funcionarios_retira_epis fr, almoxarife a, epis e WHERE fr.epis_id = e.id and fr.almoxarife_id = a.id;");
+			$this->stmt = $this->conn->prepare("SELECT fr.nome_funcionario, fr.id, e.nome, fr.quantidade, fr.data_retirada, a.usuario FROM funcionarios_retira_epis fr, almoxarife a, epis e WHERE fr.epis_id = e.id and fr.almoxarife_id = a.id;");
 			$this->stmt->execute();
+		}
+
+		public function ver_estoque($pesquisa){
+			$pesquisa = $pesquisa."%";
+			if($pesquisa == "") $pesquisa = '%';
+			$this->stmt = $this->conn->prepare("SELECT * FROM epis e WHERE e.nome LIKE :pesquisa;");
+			$this->stmt->execute([':pesquisa' => $pesquisa]);
 		}
 
 		function __destruct() {
