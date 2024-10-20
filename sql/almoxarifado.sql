@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2024 at 07:57 PM
+-- Generation Time: Oct 20, 2024 at 09:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -26,13 +26,26 @@ USE `almoxarifado`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `alertas`
+--
+
+CREATE TABLE `alertas` (
+  `idalertas` int(10) UNSIGNED NOT NULL,
+  `almoxarife_id` int(10) UNSIGNED NOT NULL,
+  `conteudo` text NOT NULL,
+  `data_2` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `almoxarife`
 --
 
 CREATE TABLE `almoxarife` (
   `id` int(10) UNSIGNED NOT NULL,
   `usuario` varchar(45) NOT NULL,
-  `senha` varchar(60) NOT NULL
+  `senha` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -84,6 +97,13 @@ CREATE TABLE `funcionarios_retira` (
 --
 
 --
+-- Indexes for table `alertas`
+--
+ALTER TABLE `alertas`
+  ADD PRIMARY KEY (`idalertas`),
+  ADD KEY `alertas_FKIndex1` (`almoxarife_id`);
+
+--
 -- Indexes for table `almoxarife`
 --
 ALTER TABLE `almoxarife`
@@ -115,6 +135,12 @@ ALTER TABLE `funcionarios_retira`
 --
 
 --
+-- AUTO_INCREMENT for table `alertas`
+--
+ALTER TABLE `alertas`
+  MODIFY `idalertas` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `almoxarife`
 --
 ALTER TABLE `almoxarife`
@@ -141,6 +167,12 @@ ALTER TABLE `funcionarios_retira`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `alertas`
+--
+ALTER TABLE `alertas`
+  ADD CONSTRAINT `alertas_ibfk_1` FOREIGN KEY (`almoxarife_id`) REFERENCES `almoxarife` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `devolucao`
