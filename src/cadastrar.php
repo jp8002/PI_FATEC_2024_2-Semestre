@@ -3,12 +3,11 @@
 require_once('sessao.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $login = $_POST['login'];
+    $login = $_POST['usuario'];
     $senha = $_POST['senha'];
-    $dados = new sessao();
-    if($dados->logar($_POST['login'], $_POST['senha'])) {
-        header("location: menu.php");
-    }
+    $dados = new sessao;
+    $dados->cadastrar($_POST['usuario'], $_POST['senha']);
+    header("location: login.php");
 }
 ?>
 
@@ -88,13 +87,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="wrapper">
     <img src="img/dottext.png" alt="erro" style="position: fixed; bottom: 0; left: 0; width: 100px; height: 40px;">
     <img src="img/loginicon.png" alt="erro" width="90" height="65">
-        <h2>LOGAR</h2>
-        <p>Favor inserir login e senha.</p>
+        <h2>CADASTAR</h2>
+        <p>Favor inserir usuario e senha.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label>LOGIN</label>
+                <label>USUARIO</label>
                 <center>
-                <input type="text" name="login" id="login" class="input-base">
+                <input type="text" name="usuario" id="usuario" class="input-base">
                 </center>
                 <span class="help-block"></span>
             </div>    
