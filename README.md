@@ -35,7 +35,10 @@
 - [x] Incrementar o número de epis no estoque.
 - [x] Registrar a entrega de epis para colaboradoes.
 - [x] Consultar a lista de epis em estoque.
-- [x] consultar a lista de epis que foram entregues.
+- [ ] Consultar a lista de epis que foram entregues.
+- [ ] Registrar a devolução de epis.
+- [ ] Consultar o histórico de devoluções.
+- [ ] Permitir a criação de alertas. 
 
 
 <h2>TELAS</h2>
