@@ -9,7 +9,7 @@
 
 <h2>GRUPO</h2>
 <ul>
-  <li>[DAVI BONELLI RODRIGUES])(https://github.com/DaviBonelli)</li>
+  <li>[DAVI BONELLI RODRIGUES](https://github.com/DaviBonelli)</li>
   <li><a href="https://github.com/DaviBonelli">DAVI SAMUEL SCHWARTZ</a></li>
   <li><a href="https://github.com/izakerollayne">IZABELA KEROLLAYNE PEREIRA SOUZA</a></li>
   <li><a href="https://github.com/jp8002">JOAO PEDRO PEREIRA DOS SANTOS</a></li>
