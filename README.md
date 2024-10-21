@@ -31,6 +31,11 @@
 
 - [x] Permitir o cadastro de novos almoxarifes.
 - [x] Permitir a realização de login.
+- [x] Permitir o cadastro de novos epis.
+- [x] Incrementar o número de epis no estoque.
+- [x] Registrar a entrega de epis para colaboradoes.
+- [x] Consultar a lista de epis em estoque.
+- [x] consultar a lista de epis que foram entregues.
 
 
 <h2>TELAS</h2>
