@@ -14,7 +14,7 @@
 
 
 <h2>DESCRIÇÃO</h2>
-<p align="justify">Esse repositório será usado para catalogar o desenvolvimento do PI do 2° 2º semestre do tecnólogo em Desenvolvimento de Softwares Multiplataforma. Nosso objetivo desenvolver um sistema de controle de estoque de almoxarifados. Com isso pretendemos criar uma alternativa mais eficiente do que o uso de meios físicos para registrar as movimentações de estoque. 
+<p align="justify">Esse repositório será usado para catalogar o desenvolvimento do PI do 2º semestre do tecnólogo em Desenvolvimento de Softwares Multiplataforma. Nosso objetivo desenvolver um sistema de controle de estoque de almoxarifados. Com isso pretendemos criar uma alternativa mais eficiente do que o uso de meios físicos para registrar as movimentações de estoque. 
 
  </p>
 
