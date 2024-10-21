@@ -28,7 +28,7 @@
 </ul>
 
 <h2>Funcionalidades</h2>
-<input type="checkbox" name="Permitir o cadastro de novos almoxarifes." checked />
+<input type="checkbox" name="Permitir o cadastro de novos almoxarifes." checked ></input>
 
 <h2>TELAS</h2>
 <img src="./imagens/tela1.png" alt="tela 1"/>
