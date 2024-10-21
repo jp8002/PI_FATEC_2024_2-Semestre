@@ -9,7 +9,7 @@
 
 <h2>GRUPO</h2>
 <ul>
-  <li><a>DAVI BONELLI RODRIGUES</a></li>
+  <li><a href="https://github.com/DaviSchwartz">DAVI BONELLI RODRIGUES</a></li>
   <li>DAVI SAMUEL SCHWARTZ</li>
   <li>IZABELA KEROLLAYNE PEREIRA SOUZA</li>
   <li>JOAO PEDRO PEREIRA DOS SANTOS</li>
