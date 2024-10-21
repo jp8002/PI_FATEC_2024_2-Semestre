@@ -2,6 +2,7 @@
   <img src="./imagens/logo.png" alt="DOT logo" width="200"/>
   <h1>DOT</h1>
   <h2>SISTEMA PARA ALMOXARIFADO</h2>
+  ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 </div>
 
 <h2>DESCRIÇÃO</h2>
