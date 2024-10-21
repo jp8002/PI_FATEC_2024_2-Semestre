@@ -27,5 +27,7 @@
   <li><a>JUAN FELIPE DA SILVA SANTOS</a></li>
 </ul>
 
+##Funcionalidades
+
 <h2>TELAS</h2>
 <img src="./imagens/tela1.png" alt="tela 1"/>
