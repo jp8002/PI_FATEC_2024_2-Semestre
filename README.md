@@ -9,13 +9,11 @@
 
 <h2>GRUPO</h2>
 <ul>
-  <li><a href="https://github.com/DaviSchwartz">DAVI BONELLI RODRIGUES</a></li>
-  <li>DAVI SAMUEL SCHWARTZ</li>
-  <li>IZABELA KEROLLAYNE PEREIRA SOUZA</li>
-  <li>JOAO PEDRO PEREIRA DOS SANTOS</li>
-  <li>JUAN FELIPE DA SILVA SANTOS
-</li>
-  
+  <li>[DAVI BONELLI RODRIGUES](https://github.com/DaviSchwartz)</li>
+  <li><a href="https://github.com/DaviBonelli">DAVI SAMUEL SCHWARTZ</a></li>
+  <li><a href="https://github.com/izakerollayne">IZABELA KEROLLAYNE PEREIRA SOUZA</a></li>
+  <li><a href="https://github.com/jp8002">JOAO PEDRO PEREIRA DOS SANTOS</a></li>
+  <li><a>JUAN FELIPE DA SILVA SANTOS</a></li>
 </ul>
 
 <h2>TELAS</h2>
