@@ -28,8 +28,11 @@
 </ul>
 
 <h2>Funcionalidades</h2>
-<input type="checkbox" disabled name="Permitir o cadastro de novos almoxarifes." />
-<input type="checkbox" name="Criar uma tela de login." />
+<div>
+  <input type="checkbox" disabled name="Permitir o cadastro de novos almoxarifes." />
+  <input type="checkbox" name="Criar uma tela de login." />
+</div>
+
 
 <h2>TELAS</h2>
 <img src="./imagens/tela1.png" alt="tela 1"/>
