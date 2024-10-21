@@ -28,7 +28,7 @@
 </ul>
 
 <h2>Funcionalidades</h2>
-- [x] Permitir o cadastro de novos almoxarifes.
+-[x] Permitir o cadastro de novos almoxarifes.
   <input type="checkbox" name="Criar uma tela de login." />
 
 
