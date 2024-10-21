@@ -14,13 +14,13 @@
 
 
 <h2>DESCRIÇÃO</h2>
-<p align="justify">
+<p >
   Esse repositório será usado para catalogar o desenvolvimento do PI do 2º semestre do tecnólogo em Desenvolvimento de Softwares Multiplataforma.
 </p>
-<p align="justify">
+<p >
   Apesar do grande avanço dos softwares de gestão e gerenciamento de recursos que o mercado presenciou. Ainda se vê um alto número de empresas de pequeno e médio porte que ainda não adotaram o uso de programas para realizar o controle de seus        estoques, utilizando ainda o papel como forma de registro de movimentações.
 </p>
-<p align="justify">
+<p >
   Com isso em mente pretendemos criar uma alternativa mais eficiente e acessível para registrar as movimentações de estoque. Tendo como objetivo a criação de um sistema de controle de estoque de almoxarifados. 
 </p>
 
