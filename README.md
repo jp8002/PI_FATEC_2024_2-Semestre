@@ -5,7 +5,18 @@
 </div>
 
 <h2>DESCRIÇÃO</h2>
-<p align="justify">Nosso PI do 2º semestre do tecnólogo em Desenvolvimento de Softwares Multiplataforma, tem como objetivo desenvolver um sistema de controle de estoque de almoxarifados. Com isso pretendemos criar uma alternativa mais eficiente do que o uso de meios físicos para registrar as movimentações de estoque.</p>
+<p align="justify">Esse repositório será usado para catalogar o desenvolvimento do PI do 2° 2º semestre do tecnólogo em Desenvolvimento de Softwares Multiplataforma.</p>
+
+<h2>GRUPO</h2>
+<ul>
+  <li>DAVI BONELLI RODRIGUES</li>
+  <li>DAVI SAMUEL SCHWARTZ</li>
+  <li>IZABELA KEROLLAYNE PEREIRA SOUZA</li>
+  <li>JOAO PEDRO PEREIRA DOS SANTOS</li>
+  <li>JUAN FELIPE DA SILVA SANTOS
+</li>
+  
+</ul>
 
 <h2>TELAS</h2>
 <img src="./imagens/tela1.png" alt="tela 1"/>
