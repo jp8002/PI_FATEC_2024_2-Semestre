@@ -27,7 +27,7 @@
   <li><a>JUAN FELIPE DA SILVA SANTOS</a></li>
 </ul>
 
-<h2>Funcionalidades</h2>
+<h2>FUNCIONALIDADES</h2>
 
 - [x] Permitir o cadastro de novos almoxarifes.
 - [x] Permitir a realização de login.
