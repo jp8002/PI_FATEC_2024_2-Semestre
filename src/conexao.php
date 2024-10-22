@@ -44,7 +44,7 @@
 		}
 
 		public function ver_saidas(){
-			$this->stmt = $this->conn->prepare("SELECT fr.nome_funcionario, fr.id, e.nome, fr.quantidade, fr.data_retirada, a.usuario FROM funcionarios_retira_epis fr, almoxarife a, epis e WHERE fr.epis_id = e.id and fr.almoxarife_id = a.id;");
+			$this->stmt = $this->conn->prepare("SELECT fr.id, fr.nome_funcionario, e.nome, fr.quantidade, fr.data_retirada, a.usuario FROM funcionarios_retira fr, almoxarife a, epis e WHERE fr.epis_id = e.id and fr.almoxarife_id = a.id;");
 			$this->stmt->execute();
 		}
 
@@ -77,6 +77,7 @@
 				echo "Estoque insuficiente ou EPI não encontrado!";
 			}
 		}
+
 		
 		function __destruct() {
 		    $this->conn == null;

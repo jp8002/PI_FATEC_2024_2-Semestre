@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2024 at 09:43 PM
+-- Generation Time: Oct 22, 2024 at 02:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,7 +33,7 @@ CREATE TABLE `alertas` (
   `idalertas` int(10) UNSIGNED NOT NULL,
   `almoxarife_id` int(10) UNSIGNED NOT NULL,
   `conteudo` text NOT NULL,
-  `data_2` date NOT NULL
+  `data_envio` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `alertas` (
 CREATE TABLE `almoxarife` (
   `id` int(10) UNSIGNED NOT NULL,
   `usuario` varchar(45) NOT NULL,
-  `senha` varchar(20) NOT NULL
+  `senha` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -107,7 +107,8 @@ ALTER TABLE `alertas`
 -- Indexes for table `almoxarife`
 --
 ALTER TABLE `almoxarife`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario` (`usuario`);
 
 --
 -- Indexes for table `devolucao`
@@ -120,13 +121,14 @@ ALTER TABLE `devolucao`
 -- Indexes for table `epis`
 --
 ALTER TABLE `epis`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `CA` (`CA`);
 
 --
 -- Indexes for table `funcionarios_retira`
 --
 ALTER TABLE `funcionarios_retira`
-  ADD PRIMARY KEY (`id`,`epis_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `funcionarios_has_EPIs_FKIndex2` (`epis_id`),
   ADD KEY `funcionarios_retira_EPIs_FKIndex3` (`almoxarife_id`);
 

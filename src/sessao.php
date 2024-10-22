@@ -30,12 +30,6 @@
                 }
             }
 
-            /*if ($login == 'almoxarife' and $senha == 'almoxarife' or $login == 'supervisor' and $senha == 'supervisor'  ){
-                $_SESSION ['logado'] = TRUE;
-                $_SESSION ['usuario'] = $login;
-                return TRUE;
-            }*/
-
             else {
                 echo 'login errado';
                 
