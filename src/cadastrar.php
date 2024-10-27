@@ -1,15 +1,3 @@
-<?php
-
-require_once('sessao.php');
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $login = $_POST['usuario'];
-    $senha = $_POST['senha'];
-    $dados = new sessao;
-    $dados->cadastrar($_POST['usuario'], $_POST['senha']);
-    header("location: login.php");
-}
-?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -89,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <img src="img/loginicon.png" alt="erro" width="90" height="65">
         <h2>CADASTAR</h2>
         <p>Favor inserir usuario e senha.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="controle.php" method="post">
             <div class="form-group">
                 <label>USUARIO</label>
                 <center>
@@ -106,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group">
                 <center>
-                <input type="submit" class="blue-buttom" value="Cadastrar">
+                <input type="submit" class="blue-buttom" name="action" value="Cadastrar">
                 </center>
                 <span class="help-block"></span>
             </div>

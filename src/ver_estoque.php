@@ -1,9 +1,15 @@
 <?php
 
-require('conexao.php');
+require 'controle.php';
 
-$pdo = new conexao();
-$pdo->ver_estoque('');
+if($_SERVER['REQUEST_METHOD'] =="POST"){
+    $query = ver_estoque($almoxarife, $_POST['pesquisa']);
+}
+
+else{
+    $query= ver_estoque($almoxarife, "");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +36,8 @@ $pdo->ver_estoque('');
               <input type="text" class="form-control" name="pesquisa" values="">
         </div>
 
-        <button type="submit" class="btn btn-primary">pesquisar</button>
-        <a href="dash_coor.php"><button type="button" class="btn btn-danger">Voltar</button></a>
+        <button type="submit" class="btn btn-primary" name="action" values="pesquisa">pesquisar</button>
+        <a href="dash_coor.php"><button type="button" class="btn btn-danger" >Voltar</button></a>
 
 </form>
 
@@ -39,10 +45,6 @@ $pdo->ver_estoque('');
 
         <div class="mx-auto mt-5 w-50">
             <?php
-                if ($_SERVER["REQUEST_METHOD"] =="POST"){
-                    $pdo->ver_estoque($_POST['pesquisa']);
-                }
-
                 echo "<table class='table'>";
                 
                 echo "<thead>
@@ -58,7 +60,7 @@ $pdo->ver_estoque('');
                     </thead>
                     <tbody>";
 
-                while ($row = $pdo->stmt->fetch()) {
+                while ($row = $query->fetch()) {
                     echo "<tr>
                             <th scope='row'>". $row['id'] ."</th>
                             <td>". $row['nome'] ."</td>

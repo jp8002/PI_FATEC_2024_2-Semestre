@@ -1,6 +1,6 @@
 <?php
-
-require('cabeca.php');
+require_once 'controle.php';
+/* require('cabeca.php'); */
 
 $usuario = $_SESSION['usuario'];
 
@@ -13,6 +13,7 @@ $usuario = $_SESSION['usuario'];
     <title>Menu</title>
     <link rel="icon" href="img/navicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <style type="text/css">
         body{ font: 18px sans-serif;
             background-color: #1D3736;
@@ -91,7 +92,7 @@ $usuario = $_SESSION['usuario'];
 
 
     <div class="form-group" style="position: fixed; top: 20px; right: 0;">
-            <a href="sair.php" class="red-buttom">Sair da Conta</a>
+            <a href="login.php" onclick="sair()" class="red-buttom">Sair da Conta</a>
             </div>
 
     <br>     
@@ -136,7 +137,7 @@ $usuario = $_SESSION['usuario'];
 
         <?php if ($usuario === "supervisor") :  ?>
             <div class="form-group">
-            <a href="checar_alertas.php" class="orange-buttom">Checar Alertas</a>
+            <a href="checar_aviso.php" class="orange-buttom">Checar Alertas</a>
             <span class="help-block"></span>
             </div>
         <?php endif ?>
@@ -146,7 +147,7 @@ $usuario = $_SESSION['usuario'];
           <?php if ($usuario === "almoxarife") :  ?>
 
             <div class="form-group">
-            <a href="registrar_entrada.php" class="green-buttom">Registrar Entrada</a>
+            <a href="devolucao.php" class="green-buttom">Registrar Entrada</a>
             <span class="help-block"></span>
             </div>
 
@@ -160,7 +161,7 @@ $usuario = $_SESSION['usuario'];
             <br>
 
             <div class="form-group">
-            <a href="adicio_teste.php" class="green-buttom">Adicionar E.P.I ao Estoque</a>
+            <a href="adicionar.php" class="green-buttom">Adicionar E.P.I ao Estoque</a>
             <span class="help-block"></span>
             </div>
 
@@ -174,7 +175,7 @@ $usuario = $_SESSION['usuario'];
             <br>
 
             <div class="form-group">
-            <a href="enviar_alerta.php" class="orange-buttom">Enviar Alerta</a>
+            <a href="enviar_aviso.php" class="orange-buttom">Enviar Alerta</a>
             <span class="help-block"></span>
             </div>
 
@@ -186,4 +187,19 @@ $usuario = $_SESSION['usuario'];
     </div>    
 </body>
 </center>
+
+<script>
+    function sair(){
+        console.log("djkhfjkdhk");
+        $.ajax({
+            url: "controle.php",
+            type: "POST",
+            dataType: "json",
+            data: {action: "sair"},
+            success:function(result){
+                console.log(result.abc);
+            }
+        });
+    }
+</script>
 </html>

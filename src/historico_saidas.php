@@ -1,9 +1,8 @@
 <?php
 
-require('conexao.php');
+require_once 'controle.php';
 
-$pdo = new conexao();
-$pdo->ver_saidas();
+ $query = ver_saidas($almoxarife);
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +37,7 @@ $pdo->ver_saidas();
                     </thead>
                     <tbody>";
 
-                while ($row = $pdo->stmt->fetch()) {
+                while ($row = $query->fetch()) {
                     echo "<tr>
                             <th scope='row'>". $row['id'] ."</th>
                             <td>". $row['nome_funcionario'] ."</td>
