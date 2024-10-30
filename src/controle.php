@@ -4,12 +4,14 @@
     require_once("classes/sessao.php");
     require_once("classes/epi.php");
 
-
     $pdo = new conexao();
     $almoxarife = new almoxarife($pdo);
     $epi = new epi($pdo);
     $sessao = new sessao();
     $query;
+
+
+    
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($_POST["action"] == "login"){
@@ -25,7 +27,7 @@
         }
     
         else if($_POST["action"] == "Cadastrar"){
-            if($_POST["usuario"] != "" && $_POST["senha"] != ""){
+            if(validar_post()){
                 $usuario = $_POST['usuario'];
                 $senha = $_POST['senha'];
         
@@ -44,7 +46,7 @@
 
         else if($_POST["action"] == "adicionar" ){
     
-            if($_POST['nome'] != "" && $_POST['ca'] != "" && $_POST['unidade'] != ""  && $_POST['estoque'] != ""  && $_POST['minimo'] != ""  && $_POST['validade'] != ""){
+            if(validar_post()){
     
                 $epi->adicionar($_POST['nome'],$_POST['ca'],$_POST['unidade'],$_POST['estoque'],$_POST['minimo'],$_POST['validade']);
             }
@@ -74,7 +76,16 @@
                 header("location: devolucao.php");
             }
         }
-        
+        else if($_POST["action"] == "criar_aviso"){
+            if(validar_post()){
+                $almoxarife->criar_aviso($_SESSION["usuario"], $_SESSION["almoxarife_id"]);
+                
+            }
+          
+        }
+        else if($_POST["action"] == "desativar"){
+            $almoxarife->desativar_aviso($_POST["idaviso"]);
+        }
     }
     
     else{

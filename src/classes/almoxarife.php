@@ -19,6 +19,7 @@
                 if ( password_verify($senha, $row["senha"])){
                     $_SESSION ['logado'] = TRUE;
                     $_SESSION ['usuario'] = $login;
+					$_SESSION ['almoxarife_id'] = $row['id'];
                     return TRUE;
                 }
 
@@ -113,17 +114,24 @@
 			}
 		}
 
-		public function criar_aviso( $usuario){
+		public function ver_entradas(){
+			$this->stmt = $this->pdo->conn->prepare("SELECT d.id, f.nome_funcionario, e.nome, fr.data_retirada, d.data_entrada, d.comentario FROM devolucao d, funcionarios_retira fr, epis e, funcionarios f where d.funcionarios_retira_id = fr.id and fr.funcionarios_idfuncionario = f.idfuncionario and fr.epis_id = e.id;
+						");
+			$this->stmt->execute();
+
+			return $this->stmt;
+		}
+		public function criar_aviso( $usuario, $almoxarife_id){
 			try{
 				$conteudo = $_POST['conteudo'];
 				$dia = date('Y-m-d');
 
 			
-				$this->stmt = $this->pdo->conn->prepare("insert into alertas (conteudo, data_envio, almoxarife) values (:conteudo, :data, :almoxarife);");
+				$this->stmt = $this->pdo->conn->prepare("insert into aviso (almoxarife_id, conteudo, data_aviso) values (:almoxarife_id, :conteudo, :data);");
 				$this->stmt->execute([
+					":almoxarife_id" => $almoxarife_id,
 					":conteudo"=>$conteudo,
-					":data"=> $dia,
-					":almoxarife"=> $usuario
+					":data"=> $dia
 				]);
 			}
 			catch(Exception $e){
@@ -131,6 +139,49 @@
 					$e .
 				"</div>";
 			}
+		}
+
+		public function ver_avisos(){
+			try{
+				$this->stmt = $this->pdo->conn->prepare("select a.idaviso, al.usuario , a.conteudo, a.data_aviso, a.visibilidade from aviso a, almoxarife al where a.almoxarife_id = al.id; ");
+				$this->stmt->execute();
+				while ($row = $this->stmt->fetch()) {
+					if($row["visibilidade"] == 1){
+						echo "<ul class='list-group'>";
+
+						echo " <li class='list-group-item d-flex justify-content-between align-items-center btn' data-toggle='collapse' onclick='desativar(". $row['idaviso'] .")' href='#collapse". $row['idaviso'] ."' role='button' aria-expanded='false' aria-controls='collapseExample'>".
+								$row['usuario']. " | ". $row['data_aviso'] 
+							."</li>"
+							;
+						
+						echo"</ul>";
+						
+						echo
+							"<div class='collapse' id='collapse". $row['idaviso'] ."'>
+								<div class='card card-body'>".
+									$row['conteudo']
+								."</div>
+							</div>"
+						;
+
+					}
+                    
+   
+                }
+			}
+			catch(Exception $e){
+				echo  
+					"<div class='alert alert-danger' role='alert'>
+						Erro ao pesquisa: " . $e .
+					"</div>";
+			}
+		}
+
+		public function desativar_aviso($id){
+			$this->stmt = $this->pdo->conn->prepare("update aviso a SET a.visibilidade = 0 where a.idaviso = :id;");
+			$this->stmt->execute([
+			":id" => $id
+			]);
 		}
 
         

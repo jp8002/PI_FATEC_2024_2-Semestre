@@ -1,4 +1,6 @@
+<?php
 
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -12,10 +14,14 @@
             background-color: #1D3736;
             color:#ffffff
         }
+
         .wrapper{ width: 350px; padding: 20px; }
 
         .green-buttom {
             box-sizing: border-box; 
+            display: block;
+            text-align: center;
+            line-height: 30px;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -27,6 +33,9 @@
 
         .red-buttom {
             box-sizing: border-box; 
+            display: block;
+            text-align: center;
+            line-height: 30px;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -38,6 +47,9 @@
 
         .orange-buttom {
             box-sizing: border-box; 
+            display: block;
+            text-align: center;
+            line-height: 30px;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -49,6 +61,9 @@
 
         .blue-buttom {
             box-sizing: border-box; 
+            display: block;
+            text-align: center;
+            line-height: 30px;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -68,6 +83,7 @@
             background-color: #D9D9D9; 
             color: black;
         }
+
 
     </style>
 </head>
@@ -97,8 +113,13 @@
                 <center>
                 <input type="submit" class="blue-buttom" name="action" value="login">
                 </center>
+
                 <span class="help-block"></span>
+                <div class="form-group">
+            <a href="cadastrar.php" class="red-buttom">Retornar ao Cadastro</a>
+            <span class="help-block"></span>
             </div>
+            
         </form>
     </div>    
 </body>

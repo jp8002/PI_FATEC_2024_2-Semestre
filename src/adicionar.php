@@ -1,3 +1,7 @@
+<?php
+require 'controle.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

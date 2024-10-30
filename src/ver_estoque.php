@@ -21,12 +21,79 @@ else{
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/booZtstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>Visualizar</title>
+    <title>Ver Estoque</title>
+    <link rel="icon" href="img/navicon.ico">
+    <style type="text/css">
+        body{ font: 18px sans-serif;
+            background-color: #1D3736;
+            color:#ffffff
+        }
+
+        .wrapper{ width: 350px; padding: 20px; }
+
+        .green-buttom {
+            box-sizing: border-box; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #1EE27A; 
+            color: #1D3736;
+        }
+
+        .red-buttom {
+            box-sizing: border-box; 
+            width: 20%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #E21E41; 
+            color: white;
+        }
+
+        .orange-buttom {
+            box-sizing: border-box; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #F39C36; 
+            color: #1D3736;
+        }
+
+        .blue-buttom {
+            box-sizing: border-box; 
+            width: 30%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #0E7FBE; 
+            color: white;
+        }
+
+        .input-base {
+            box-sizing: border-box; 
+            width: 100%; 
+            height: 40px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #D9D9D9; 
+            color: black;
+        }
+
+
+    </style>
 </head>
 <body>
 
 <form  class="mx-auto mt-5 w-25" action="<?php $_PHP_SELF?>" method="post">
-        <h1 class="text-center">Lista de estoque</h1>
+<img src="img/verestoque.png" alt="erro" width="70" height="70">
+        <h1>Lista de estoque</h1>
         
 
         <div class="input-group mb-3">
@@ -35,12 +102,16 @@ else{
               </div>
               <input type="text" class="form-control" name="pesquisa" values="">
         </div>
-
-        <button type="submit" class="btn btn-primary" name="action" values="pesquisa">pesquisar</button>
-        <a href="dash_coor.php"><button type="button" class="btn btn-danger" >Voltar</button></a>
-
+        <div class="form-group">
+        <button type="submit" class="blue-buttom" name="action" values="pesquisa">Pesquisar</button>
+        <span class="help-block"></span>
+    </div>
+    <div class="form-group">
+        <a href="menu.php"><button type="button" class="red-buttom" >Voltar</button></a>
+        <span class="help-block"></span>
+        </div>
 </form>
-
+<img src="img/dottext.png" alt="erro" style="position: fixed; bottom: 0; left: 0; width: 100px; height: 40px;">
 <div class="container-fluid">
 
         <div class="mx-auto mt-5 w-50">

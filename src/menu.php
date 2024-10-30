@@ -24,6 +24,8 @@ $usuario = $_SESSION['usuario'];
 
         .green-buttom {
             box-sizing: border-box; 
+            display: block;
+            text-align: center;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -35,6 +37,8 @@ $usuario = $_SESSION['usuario'];
 
         .red-buttom {
             box-sizing: border-box; 
+            /*display: block;*/
+            text-align: center;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -46,6 +50,8 @@ $usuario = $_SESSION['usuario'];
 
         .orange-buttom {
             box-sizing: border-box; 
+            display: block;
+            text-align: center;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -57,6 +63,8 @@ $usuario = $_SESSION['usuario'];
 
         .blue-buttom {
             box-sizing: border-box; 
+            display: block;
+            text-align: center;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -112,28 +120,27 @@ $usuario = $_SESSION['usuario'];
             <span class="help-block"></span>
             </div>
 
-            <br>
+           
 
             <div class="form-group">
             <a href="historico_saidas.php" class="green-buttom">Histórico de Saídas</a>
             <span class="help-block"></span>
             </div>
 
-            <br>
 
             <div class="form-group">   
             <a href="historico.php" class="green-buttom">Histórico de Entradas e Saídas</a> 
             <span class="help-block"></span>
             </div>
 
-            <br>
+            
             
             <div class="form-group">
             <a href="ver_estoque.php" class="green-buttom">Ver Estoque</a> 
             <span class="help-block"></span>
             </div>
             
-            <br>
+           
 
         <?php if ($usuario === "supervisor") :  ?>
             <div class="form-group">
@@ -151,28 +158,28 @@ $usuario = $_SESSION['usuario'];
             <span class="help-block"></span>
             </div>
 
-            <br>
+            
 
             <div class="form-group">
             <a href="registrar_saida.php" class="green-buttom">Registrar saída</a>
             <span class="help-block"></span>
             </div>
 
-            <br>
+            
 
             <div class="form-group">
             <a href="adicionar.php" class="green-buttom">Adicionar E.P.I ao Estoque</a>
             <span class="help-block"></span>
             </div>
 
-            <br>
+            
 
             <div class="form-group">
             <a href="atualizar_estoque.php" class="green-buttom">Atualizar Estoque</a>
             <span class="help-block"></span>
             </div>
 
-            <br>
+            
 
             <div class="form-group">
             <a href="enviar_aviso.php" class="orange-buttom">Enviar Alerta</a>
