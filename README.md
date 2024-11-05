@@ -29,7 +29,7 @@
   <li><a href="https://github.com/DaviBonelli">DAVI BONELLI RODRIGUES</a></li>
   <li><a href="https://github.com/DaviBonelli">DAVI SAMUEL SCHWARTZ</a></li>
   <li><a href="https://github.com/izakerollayne">IZABELA KEROLLAYNE PEREIRA SOUZA</a></li>
-  <li><a href="https://github.com/jp8002">JOAO PEDRO PEREIRA DOS SANTOS</a></li>
+  <li><del><a href="https://github.com/jp8002">JOAO PEDRO PEREIRA DOS SANTOS</a></del></li>
   <li><a>JUAN FELIPE DA SILVA SANTOS</a></li>
 </ul>
 
