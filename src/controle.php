@@ -4,9 +4,11 @@
     require_once("classes/sessao.php");
     require_once("classes/epi.php");
     require_once("classes/fornecedor.php");
+    require_once("classes/funcionario.php");
 
     $pdo = new conexao();
     $almoxarife = new almoxarife($pdo);
+    $funcionario = new Funcionario($pdo);
     $epi = new epi($pdo);
     $fornecedor = new Fornecedor($pdo);
     $sessao = new sessao();
@@ -133,6 +135,20 @@
 
         else if($_POST["action"] == "listar_fornecedor"){
             $query = $fornecedor->listar_fornecedores();
+            
+            echo json_encode($query->fetchAll());
+            
+        }
+
+        else if($_POST["action"] == "listar_almoxarife"){
+            $query = $almoxarife->listar_almoxarife();
+            
+            echo json_encode($query->fetchAll());
+            
+        }
+
+        else if($_POST["action"] == "listar_funcionarios"){
+            $query = $funcionario->listar_funcionarios();
             
             echo json_encode($query->fetchAll());
             

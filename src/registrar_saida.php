@@ -11,6 +11,7 @@ require 'controle.php';
     <title>Devolução de EPI</title>
     <link rel="icon" href="img/navicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <style type="text/css">
         body{ font: 18px sans-serif;
             background-color: #1D3736;
@@ -151,15 +152,21 @@ require 'controle.php';
         <form action="controle.php" method="post">
             <div class="form-group">
                 <label for="funcionarios_retira_id">ID do EPI:</label>
-                <input type="number" class="form-control" id="epis_id" name="epis_id" required>
+                <select class="custom-select" id="inputGroupSelect01 epis" name="epis_id">
+                    <option selected hidden>Escolher...</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="funcionarios_retira_id">ID do almoxarife:</label>
-                <input type="number" class="form-control" id="almoxarife_id" name="almoxarife_id" required>
+                <select class="custom-select" id="inputGroupSelect01 almoxarife_id" name="almoxarife_id">
+                    <option selected hidden>Escolher...</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="funcionarios_retira_id">ID do funcionario:</label>
-                <input type="number" class="form-control" id="idfuncionario" name="idfuncionario" required>
+                <select class="custom-select" id="inputGroupSelect01 idfuncionario" name="idfuncionario">
+                    <option selected hidden>Escolher...</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="funcionarios_retira_id">quantidade:</label>
@@ -175,4 +182,68 @@ require 'controle.php';
         </form>
     </div>
 </body>
+
+<script>
+        let epis;
+        
+        console.log("teste");
+        $.ajax({
+        url:"controle.php",
+        type:"POST",
+        dataType:"json",
+        data:{action:"lista_epi"},
+        success:function(response){
+            response.forEach(element => {
+              console.log(element['nome']);
+              campoei = document.getElementById("inputGroupSelect01 epis");
+              campoei.innerHTML += '<option value="'+ element['id'] +'">'+ element['nome'] +'</option>';
+            });
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+         } 
+        })
+        
+        $.ajax({
+        url:"controle.php",
+        type:"POST",
+        dataType:"json",
+        data:{action:"listar_almoxarife"},
+        success:function(response){
+            response.forEach(element => {
+              console.log(element['usuario']);
+              campofor = document.getElementById("inputGroupSelect01 almoxarife_id");
+              campofor.innerHTML += '<option value="'+ element['id'] +'">'+ element['usuario'] +'</option>';
+            });
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+         } 
+        })
+
+        $.ajax({
+        url:"controle.php",
+        type:"POST",
+        dataType:"json",
+        data:{action:"listar_funcionarios"},
+        success:function(response){
+            response.forEach(element => {
+              console.log(element['nome']);
+              campofor = document.getElementById("inputGroupSelect01 idfuncionario");
+              campofor.innerHTML += '<option value="'+ element['idfuncionario'] +'">'+ element['nome_funcionario'] +'</option>';
+            });
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+         } 
+        })
+        
+
+      
+
+        
+</script>
 </html>

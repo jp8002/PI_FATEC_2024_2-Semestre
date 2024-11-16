@@ -163,6 +163,12 @@
 			]);
 		}
 
+		public function listar_almoxarife(){
+			$this->stmt = $this->pdo->conn->prepare("SELECT * FROM almoxarife");
+			$this->stmt->execute();
+			return $this->stmt;
+		}
+
 
         
     }
