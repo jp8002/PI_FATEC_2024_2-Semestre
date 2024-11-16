@@ -1,11 +1,6 @@
 <?php
-    /* require_once 'conexao.php';
-    if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['nome'] != ""  && $_POST['estoque'] != ""){
-
-        $pdo = new conexao();
-
-        $pdo->compra_estoque($_POST['nome'], $_POST['estoque']);
-    } */
+    require_once 'controle.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +23,9 @@
         .wrapper{ width: 350px; padding: 20px; }
 
         .green-buttom {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -38,19 +35,51 @@
             color: #1D3736;
         }
 
-        .red-buttom {
-            box-sizing: border-box; 
-            width: 100px; 
+        .green-buttom:hover {
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
+            width: 100%; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
             border: 0px solid #ccc; 
+            background-color: #1ec96d; 
+            color: #1D3736;
+            text-decoration: none;
+        }
+
+        .red-buttom:hover{
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #c01937; 
+            color: white;
+            text-decoration: none;
+        }
+
+        .red-buttom {
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc;
             background-color: #E21E41; 
             color: white;
         }
 
         .orange-buttom {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -60,9 +89,39 @@
             color: #1D3736;
         }
 
+        .orange-buttom:hover {
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #d88a31; 
+            color: #1D3736;
+            text-decoration: none;
+        }
+
+        .blue-buttom:hover {
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #0c6ea2; 
+            color: white;
+            text-decoration: none;
+        }          
+
         .blue-buttom {
-            box-sizing: border-box; 
-            width: 100px; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
@@ -72,7 +131,9 @@
         }
 
         .input-base {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
             width: 100%; 
             height: 40px;
             padding: 10px; 
@@ -132,7 +193,7 @@
         </div>
 
         <div class="form-group">
-        <a href="menu.php"><button type="button" class="red-buttom">Voltar</button></a>
+        <a href="menu.php" type="button" class="red-buttom"> Voltar</a>
       </div>
 
     </form>

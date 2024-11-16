@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2024 at 11:00 PM
+-- Generation Time: Nov 03, 2024 at 07:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,6 +29,7 @@ USE `almoxarifado`;
 -- Table structure for table `alerta`
 --
 
+DROP TABLE IF EXISTS `alerta`;
 CREATE TABLE `alerta` (
   `idalerta` int(10) UNSIGNED NOT NULL,
   `epis_id` int(10) UNSIGNED NOT NULL,
@@ -41,6 +42,7 @@ CREATE TABLE `alerta` (
 -- Table structure for table `almoxarife`
 --
 
+DROP TABLE IF EXISTS `almoxarife`;
 CREATE TABLE `almoxarife` (
   `id` int(10) UNSIGNED NOT NULL,
   `usuario` varchar(45) NOT NULL,
@@ -54,6 +56,7 @@ CREATE TABLE `almoxarife` (
 -- Table structure for table `aviso`
 --
 
+DROP TABLE IF EXISTS `aviso`;
 CREATE TABLE `aviso` (
   `idaviso` int(10) UNSIGNED NOT NULL,
   `almoxarife_id` int(10) UNSIGNED NOT NULL,
@@ -68,6 +71,7 @@ CREATE TABLE `aviso` (
 -- Table structure for table `compras`
 --
 
+DROP TABLE IF EXISTS `compras`;
 CREATE TABLE `compras` (
   `idcompra` int(10) UNSIGNED NOT NULL,
   `epis_id` int(10) UNSIGNED NOT NULL,
@@ -80,22 +84,10 @@ CREATE TABLE `compras` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `devolucao`
---
-
-CREATE TABLE `devolucao` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `funcionarios_retira_id` int(10) UNSIGNED NOT NULL,
-  `data_entrada` date NOT NULL,
-  `comentario` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `epis`
 --
 
+DROP TABLE IF EXISTS `epis`;
 CREATE TABLE `epis` (
   `id` int(10) UNSIGNED NOT NULL,
   `nome` varchar(45) NOT NULL,
@@ -112,6 +104,7 @@ CREATE TABLE `epis` (
 -- Table structure for table `fornecedor`
 --
 
+DROP TABLE IF EXISTS `fornecedor`;
 CREATE TABLE `fornecedor` (
   `idfornecedor` int(10) UNSIGNED NOT NULL,
   `nome` varchar(100) NOT NULL,
@@ -125,6 +118,7 @@ CREATE TABLE `fornecedor` (
 -- Table structure for table `funcionarios`
 --
 
+DROP TABLE IF EXISTS `funcionarios`;
 CREATE TABLE `funcionarios` (
   `idfuncionario` int(10) UNSIGNED NOT NULL,
   `nome_funcionario` varchar(25) NOT NULL
@@ -136,14 +130,40 @@ CREATE TABLE `funcionarios` (
 -- Table structure for table `funcionarios_retira`
 --
 
+DROP TABLE IF EXISTS `funcionarios_retira`;
 CREATE TABLE `funcionarios_retira` (
   `id` int(10) UNSIGNED NOT NULL,
   `funcionarios_idfuncionario` int(10) UNSIGNED NOT NULL,
   `epis_id` int(10) UNSIGNED NOT NULL,
   `almoxarife_id` int(10) UNSIGNED NOT NULL,
   `data_retirada` date NOT NULL,
-  `quantidade` int(10) UNSIGNED NOT NULL
+  `quantidade` int(10) UNSIGNED NOT NULL,
+  `devolvido` tinyint(1) DEFAULT 0,
+  `data_devolucao` date NOT NULL,
+  `comentario_devolucao` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Triggers `funcionarios_retira`
+--
+DROP TRIGGER IF EXISTS `TGR_devolve_epi`;
+DELIMITER $$
+CREATE TRIGGER `TGR_devolve_epi` AFTER UPDATE ON `funcionarios_retira` FOR EACH ROW begin
+		
+		CALL atualiza_estoque(OLD.epis_id, old.quantidade, "D");
+	
+	END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `TRG_retirada_epi`;
+DELIMITER $$
+CREATE TRIGGER `TRG_retirada_epi` AFTER INSERT ON `funcionarios_retira` FOR EACH ROW BEGIN 
+	
+		CALL atualiza_estoque(NEW.epis_id, NEW.quantidade ,"R");
+	
+	END
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables
@@ -176,13 +196,6 @@ ALTER TABLE `compras`
   ADD PRIMARY KEY (`idcompra`),
   ADD KEY `compras_FKIndex1` (`fornecedor_idfornecedor`),
   ADD KEY `compras_FKIndex2` (`epis_id`);
-
---
--- Indexes for table `devolucao`
---
-ALTER TABLE `devolucao`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `devolucao_FKIndex1` (`funcionarios_retira_id`);
 
 --
 -- Indexes for table `epis`
@@ -240,12 +253,6 @@ ALTER TABLE `compras`
   MODIFY `idcompra` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `devolucao`
---
-ALTER TABLE `devolucao`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `epis`
 --
 ALTER TABLE `epis`
@@ -293,17 +300,12 @@ ALTER TABLE `compras`
   ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`epis_id`) REFERENCES `epis` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `devolucao`
---
-ALTER TABLE `devolucao`
-  ADD CONSTRAINT `devolucao_ibfk_1` FOREIGN KEY (`funcionarios_retira_id`) REFERENCES `funcionarios_retira` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `funcionarios_retira`
 --
 ALTER TABLE `funcionarios_retira`
   ADD CONSTRAINT `funcionarios_retira_ibfk_1` FOREIGN KEY (`almoxarife_id`) REFERENCES `almoxarife` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `funcionarios_retira_ibfk_2` FOREIGN KEY (`epis_id`) REFERENCES `epis` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `funcionarios_retira_ibfk_2` FOREIGN KEY (`epis_id`) REFERENCES `epis` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `funcionarios_retira_ibfk_3` FOREIGN KEY (`funcionarios_idfuncionario`) REFERENCES `funcionarios` (`idfuncionario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,36 +6,6 @@
         public function __construct($pdo){
             $this->pdo = $pdo;
         }
-        //criação da função logar
-        public function logar ($login, $senha){
-            session_start();
-            
-            $this->stmt = $this->pdo->conn->prepare("select * from almoxarife where usuario = :login");
-            $this->stmt->execute([":login" =>$login]);
-            $row = $this->stmt->fetch();
-
-            if($row){
-                echo $row["senha"];
-                if ( password_verify($senha, $row["senha"])){
-                    $_SESSION ['logado'] = TRUE;
-                    $_SESSION ['usuario'] = $login;
-					$_SESSION ['almoxarife_id'] = $row['id'];
-                    return TRUE;
-                }
-
-                else {
-                    echo 'senha errada';
-                    $_SESSION ['logado'] = FALSE;
-                    return FALSE;
-                }
-            }
-
-            else {
-                $_SESSION ['logado'] = FALSE;
-                return FALSE;
-            }
-        }
-
 
         //criação da função cadastrar
         public function cadastrar($usuario, $senha){
@@ -49,35 +19,32 @@
         }
 
         public function ver_saidas(){
-			$this->stmt = $this->pdo->conn->prepare("SELECT fr.id, e.nome, f.nome_funcionario, fr.quantidade, fr.data_retirada, a.usuario FROM funcionarios_retira fr, almoxarife a, epis e, funcionarios f WHERE fr.epis_id = e.id and fr.almoxarife_id = a.id and fr.funcionarios_idfuncionario = f.idfuncionario;
-");
+			$this->stmt = $this->pdo->conn->prepare("call ver_saidas;");
 			$this->stmt->execute();
             return $this->stmt;
 		}
 
-        public function estoque($pesquisa){
+        public function ver_estoque($pesquisa){
 			$pesquisa = $pesquisa."%";
 			if($pesquisa == "") $pesquisa = '%';
-			$this->stmt = $this->pdo->conn->prepare("SELECT * FROM epis e WHERE e.nome LIKE :pesquisa;");
+			$this->stmt = $this->pdo->conn->prepare("call ver_estoque(:pesquisa);");
 			$this->stmt->execute([':pesquisa' => $pesquisa]);
             return $this->stmt;
 		}
 
-        public function registrar_saida($epi_id, $almoxarife_id, $quantidade, $idfuncionario) {
-			$this->stmt = $this->pdo->conn->prepare("SELECT estoque FROM epis WHERE id = :epi_id");
-			$this->stmt->execute([':epi_id' => $epi_id]);
+        public function registrar_saida() {
+			$this->stmt = $this->pdo->conn->prepare("SELECT estoque FROM epis WHERE id = :epis_id");
+			$this->stmt->execute([':epis_id' => $_POST["epis_id"]]);
 			$epi = $this->stmt->fetch(PDO::FETCH_ASSOC);
 			
-			if ($epi && $epi['estoque'] >= $quantidade) {
-				$this->stmt = $this->pdo->conn->prepare("UPDATE epis SET estoque = estoque - :quantidade WHERE id = :epi_id");
-				$this->stmt->execute([':quantidade' => $quantidade, ':epi_id' => $epi_id]);
-				$this->stmt = $this->pdo->conn->prepare("INSERT INTO funcionarios_retira (epis_id, almoxarife_id, data_retirada, quantidade, funcionarios_idfuncionario)
-													VALUES (:epis_id, :almoxarife_id, NOW(), :quantidade, :funcionarios_idfuncionario)");
+			if ($epi && $epi['estoque'] >= $_POST["quantidade"]) {
+				$this->stmt = $this->pdo->conn->prepare("call registrar_saida(:epis_id,:almoxarife_id,:quantidade,:funcionarios_idfuncionario);");
+
 				$this->stmt->execute([
-					':epis_id' => $epi_id,
-					':almoxarife_id' => $almoxarife_id,
-					':quantidade' => $quantidade,
-					':funcionarios_idfuncionario' => $idfuncionario
+					':epis_id' => $_POST["epis_id"],
+					':almoxarife_id' => $_POST["almoxarife_id"],
+					':quantidade' => $_POST["quantidade"],
+					':funcionarios_idfuncionario' => $_POST["idfuncionario"]
 				]);
 		
 				echo "Retirada registrada com sucesso!";
@@ -88,26 +55,16 @@
 
         public function registrar_entrada() {
 			try {
-				$this->stmt = $this->pdo->conn->prepare("SELECT epis_id, quantidade FROM funcionarios_retira WHERE id = :funcionarios_retira_id");
+				$this->stmt = $this->pdo->conn->prepare("SELECT devolvido FROM funcionarios_retira WHERE id = :funcionarios_retira_id");
 				$this->stmt->execute([':funcionarios_retira_id' => $_POST["funcionarios_retira_id"]]);
 				$retirada = $this->stmt->fetch(PDO::FETCH_ASSOC);
 		
-				if ($retirada) {
-					$this->stmt = $this->pdo->conn->prepare("INSERT INTO devolucao (funcionarios_retira_id, data_entrada, comentario) 
-														VALUES (:funcionarios_retira_id, NOW(), :comentario)");
+				if ($retirada && $retirada['devolvido'] == 0) {
+					$this->stmt = $this->pdo->conn->prepare("call registrar_devolucao(:funcionarios_retira_id, :comentario)");
 					$this->stmt->execute([
 						':funcionarios_retira_id' => $_POST["funcionarios_retira_id"],
 						':comentario' => $_POST["comentario"]
 					]);
-					$epi_id = $retirada['epis_id'];
-					$quantidade = $retirada['quantidade'];
-		
-					$this->stmt = $this->pdo->conn->prepare("UPDATE epis SET estoque = estoque + :quantidade WHERE id = :epi_id");
-					$this->stmt->execute([
-						':quantidade' => $quantidade,
-						':epi_id' => $epi_id
-					]);
-		
 				} 
 			} catch (PDOException $e) {
 				echo "Erro ao registrar devolução: " . $e->getMessage();
@@ -115,8 +72,7 @@
 		}
 
 		public function ver_entradas(){
-			$this->stmt = $this->pdo->conn->prepare("SELECT d.id, f.nome_funcionario, e.nome, fr.data_retirada, d.data_entrada, d.comentario FROM devolucao d, funcionarios_retira fr, epis e, funcionarios f where d.funcionarios_retira_id = fr.id and fr.funcionarios_idfuncionario = f.idfuncionario and fr.epis_id = e.id;
-						");
+			$this->stmt = $this->pdo->conn->prepare("call ver_entradas;");
 			$this->stmt->execute();
 
 			return $this->stmt;
@@ -142,6 +98,7 @@
 		}
 
 		public function ver_avisos(){
+			
 			try{
 				$this->stmt = $this->pdo->conn->prepare("select a.idaviso, al.usuario , a.conteudo, a.data_aviso, a.visibilidade from aviso a, almoxarife al where a.almoxarife_id = al.id; ");
 				$this->stmt->execute();
@@ -184,6 +141,28 @@
 			]);
 		}
 
+		public function contagem_avisos(){
+			$this->stmt = $this->pdo->conn->prepare("select count(idaviso) as qtd from aviso where visibilidade = 1");
+			$this->stmt->execute();
+			return $this->stmt->fetch();
+		}
+
+		public function cadastrar_funcionario(){
+			$this->stmt = $this->pdo->conn->prepare("call cadastrar_funcionario(:nome)");
+			$this->stmt->execute([
+				":nome" => $_POST["nomeFuncionario"]
+			]);
+		}
+
+		public function cadastrar_fornecedor(){
+			$this->stmt = $this->pdo->conn->prepare("call cadastrar_fornecedor(:nome, :cnpj, :telefone)");
+			$this->stmt->execute([
+				":nome" => $_POST["nomeFornecedor"],
+				":cnpj" => $_POST["cnpj"],
+				":telefone" => $_POST["telefoneFornecedor"]
+			]);
+		}
+
+
         
     }
-?>

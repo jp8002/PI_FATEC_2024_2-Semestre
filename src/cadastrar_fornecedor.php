@@ -1,6 +1,5 @@
-<?php
-include 'classes/sessao.php';
-require 'controle.php';
+<?php 
+    require_once "controle.php";
 ?>
 
 <!DOCTYPE html>
@@ -92,27 +91,25 @@ require 'controle.php';
 <body>
     <div class="container mt-5">
     <img src="img/devolucao.png" alt="erro" width="80" height="80">
-        <h2>Registrar Retirada de EPI</h2>
+        <h2>Cadastrar Funcionario</h2>
         <img src="img/dottext.png" alt="erro" style="position: fixed; bottom: 0; left: 0; width: 100px; height: 40px;">
         <form action="controle.php" method="post">
             <div class="form-group">
-                <label for="funcionarios_retira_id">ID do EPI:</label>
-                <input type="number" class="form-control" id="epis_id" name="epis_id" required>
+                <label for="nomeFornecedor">Nome do Fornecedor:</label>
+                <input type="text" class="form-control" id="nomeFornecedor" name="nomeFornecedor" required>
             </div>
+
             <div class="form-group">
-                <label for="funcionarios_retira_id">ID do almoxarife:</label>
-                <input type="number" class="form-control" id="almoxarife_id" name="almoxarife_id" required>
+                <label for="cnpj">CNPJ do Fornecedor:</label>
+                <input type="text" class="form-control" id="cnpj" name="cnpj" required>
             </div>
+
             <div class="form-group">
-                <label for="funcionarios_retira_id">ID do funcionario:</label>
-                <input type="number" class="form-control" id="idfuncionario" name="idfuncionario" required>
-            </div>
-            <div class="form-group">
-                <label for="funcionarios_retira_id">quantidade:</label>
-                <input type="number" class="form-control" id="quantidade" name="quantidade" required>
+                <label for="telefoneFornecedor">Telefone do Fornecedor:</label>
+                <input type="text" class="form-control" id="telefoneFornecedor" name="telefoneFornecedor" required>
             </div>
            
-            <button type="submit" class="blue-buttom" name="action" value="retirada">Registrar retirada</button>
+            <button type="submit" class="blue-buttom" name="action" value="cadastrar_fornecedor">Registrar</button>
             <br>
             <div class="form-group">
         <a href="menu.php"><button type="button" class="red-buttom" >Voltar</button></a>

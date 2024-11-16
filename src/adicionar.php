@@ -21,7 +21,10 @@ require 'controle.php';
         .wrapper{ width: 350px; padding: 20px; }
 
         .green-buttom {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
+            line-height: 30px;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -30,20 +33,39 @@ require 'controle.php';
             background-color: #1EE27A; 
             color: #1D3736;
         }
+        .green-buttom:hover { 
+            background-color: #1ec96d;
+            color: white; 
+            text-decoration: none;
+        }
 
+        
         .red-buttom {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
+            line-height: 30px;
             width: 100%; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
-            border: 0px solid #ccc; 
+            border: 0px solid #ccc;  
             background-color: #E21E41; 
             color: white;
         }
+        .red-buttom:hover{
+            background-color: #c01937; 
+            color: white;
+            text-decoration: none;
+        }
+
+        
 
         .orange-buttom {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
+            line-height: 30px;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -52,10 +74,19 @@ require 'controle.php';
             background-color: #F39C36; 
             color: #1D3736;
         }
+        .orange-buttom:hover {
+            background-color: #d88a31;
+            color: white;
+            text-decoration: none;
+        }
+        
 
         .blue-buttom {
-            box-sizing: border-box; 
-            width: 100px; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
+            line-height: 30px; 
+            width: 100%; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
@@ -63,9 +94,18 @@ require 'controle.php';
             background-color: #0E7FBE; 
             color: white;
         }
+        .blue-buttom:hover {
+            background-color: #0c6ea2;
+            color: white;
+            text-decoration: none;
+        }
 
+        
         .input-base {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
+            line-height: 30px;
             width: 100%; 
             height: 40px;
             padding: 10px; 
@@ -74,6 +114,8 @@ require 'controle.php';
             background-color: #D9D9D9; 
             color: black;
         }
+
+      
 
     </style>
 </head>
@@ -126,13 +168,11 @@ require 'controle.php';
           <input type="date" name="validade">
         </div>
 
-        <br>
 
         <div class="form-group">
         <button type="submit" class="blue-buttom" name="action" value="adicionar" >Registrar</button>
         </div>
 
-        <br>
 
         <div class="form-group">
             <a href="menu.php" class="red-buttom">Voltar</a>

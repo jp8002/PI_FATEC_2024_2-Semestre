@@ -1,6 +1,5 @@
 <?php
 require_once 'controle.php';
-/* require('cabeca.php'); */
 
 $usuario = $_SESSION['usuario'];
 
@@ -142,7 +141,7 @@ $usuario = $_SESSION['usuario'];
             
            
 
-        <?php if ($usuario === "supervisor") :  ?>
+        <?php if ($_SESSION["tipo_acesso"] === "supervisor") :  ?>
             <div class="form-group">
             <a href="checar_aviso.php" class="orange-buttom">Checar Alertas</a>
             <span class="help-block"></span>
@@ -151,7 +150,7 @@ $usuario = $_SESSION['usuario'];
             
             
         
-          <?php if ($usuario === "almoxarife") :  ?>
+          <?php if ($_SESSION["tipo_acesso"] === "almoxarife") :  ?>
 
             <div class="form-group">
             <a href="devolucao.php" class="green-buttom">Registrar Entrada</a>
