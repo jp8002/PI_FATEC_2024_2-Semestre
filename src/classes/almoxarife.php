@@ -6,41 +6,11 @@
         public function __construct($pdo){
             $this->pdo = $pdo;
         }
-        //criação da função logar
-        public function logar ($login, $senha){
-            session_start();
-            
-            $this->stmt = $this->pdo->conn->prepare("select * from almoxarife where usuario = :login");
-            $this->stmt->execute([":login" =>$login]);
-            $row = $this->stmt->fetch();
-
-            if($row){
-                echo $row["senha"];
-                if ( password_verify($senha, $row["senha"])){
-                    $_SESSION ['logado'] = TRUE;
-                    $_SESSION ['usuario'] = $login;
-					$_SESSION ['almoxarife_id'] = $row['id'];
-                    return TRUE;
-                }
-
-                else {
-                    echo 'senha errada';
-                    $_SESSION ['logado'] = FALSE;
-                    return FALSE;
-                }
-            }
-
-            else {
-                $_SESSION ['logado'] = FALSE;
-                return FALSE;
-            }
-        }
-
 
         //criação da função cadastrar
         public function cadastrar($usuario, $senha){
             $crypto = password_hash($senha, PASSWORD_DEFAULT);
-            $this->stmt = $this->pdo->conn->prepare("insert into almoxarife values('', :usuario, :senha,'')");
+            $this->stmt = $this->pdo->conn->prepare("insert into almoxarife(usuario,senha) values(:usuario, :senha)");
             $this->stmt->execute([
                 ":usuario" => $usuario,
                 ":senha" => $crypto
@@ -128,6 +98,7 @@
 		}
 
 		public function ver_avisos(){
+			
 			try{
 				$this->stmt = $this->pdo->conn->prepare("select a.idaviso, al.usuario , a.conteudo, a.data_aviso, a.visibilidade from aviso a, almoxarife al where a.almoxarife_id = al.id; ");
 				$this->stmt->execute();
@@ -176,6 +147,22 @@
 			return $this->stmt->fetch();
 		}
 
+		public function cadastrar_funcionario(){
+			$this->stmt = $this->pdo->conn->prepare("call cadastrar_funcionario(:nome)");
+			$this->stmt->execute([
+				":nome" => $_POST["nomeFuncionario"]
+			]);
+		}
+
+		public function cadastrar_fornecedor(){
+			$this->stmt = $this->pdo->conn->prepare("call cadastrar_fornecedor(:nome, :cnpj, :telefone)");
+			$this->stmt->execute([
+				":nome" => $_POST["nomeFornecedor"],
+				":cnpj" => $_POST["cnpj"],
+				":telefone" => $_POST["telefoneFornecedor"]
+			]);
+		}
+
+
         
     }
-?>

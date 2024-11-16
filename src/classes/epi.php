@@ -1,12 +1,16 @@
 <?php
 class epi{
 
+
     private $stmt;
 
     private $pdo;
 
+
+
     public function __construct($pdo) {
         $this->pdo = $pdo;
+        
     }
     public function adicionar($nome,$ca,$uni,$estoque,$min,$val){
         try{
@@ -42,6 +46,13 @@ class epi{
             ':quantidade' => $_POST["quantidade"],
             ':epis_id' => $_POST["epis_id"]
         ]);
+    }
+
+    public function checar_minimo(){
+        
+        $this->stmt = $this->pdo->conn->prepare("select e.nome, e.estoque, e.minimo from epis e where e.minimo >= e.estoque");
+        $this->stmt->execute();
+        return $this->stmt->fetchAll();
     }
 }
 

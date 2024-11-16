@@ -151,7 +151,7 @@ else{
         <span class="help-block"></span>
         </div>
 
-        <?php if ($usuario === "supervisor") :  ?>
+        <?php if ($_SESSION['usuario'] === "supervisor") :  ?>
 <a id="sino" href="#">
     <span class="fa-regular fa-bell fa-2xl" style="color: black;"></span>
     <span id="badge"></span>

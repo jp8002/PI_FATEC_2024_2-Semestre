@@ -9,6 +9,8 @@
     $epi = new epi($pdo);
     $sessao = new sessao();
     $query;
+    $count = 0;
+    
 
 
     
@@ -17,7 +19,7 @@
         if($_POST["action"] == "login"){
             $login = $_POST['login'];
             $senha = $_POST['senha'];
-            if($almoxarife->logar($_POST['login'], $_POST['senha'])) {
+            if($sessao->logar($_POST['login'], $_POST['senha'], $pdo)) {
                 header("location: menu.php");
             }
     
@@ -100,6 +102,26 @@
 
         else if($_POST["action"] == "contagem"){
             echo json_encode($almoxarife->contagem_avisos());
+        }
+        else if($_POST["action"] == "cadastrar_funcionario"){
+            if(validar_post()){
+                $almoxarife->cadastrar_funcionario();
+                header("location:cadastrar_funcionario.php");
+            }
+            header("location:cadastrar_funcionario.php");
+        }
+
+        else if($_POST["action"] == "cadastrar_fornecedor"){
+            if(validar_post()){
+                $almoxarife->cadastrar_fornecedor();
+                header("location:cadastrar_fornecedor.php");
+            }
+            header("location:cadastrar_fornecedor.php");
+        }
+
+        else if($_POST["action"] == "alerta"){
+            echo json_encode($epi->checar_minimo());
+            
         }
     }
     
