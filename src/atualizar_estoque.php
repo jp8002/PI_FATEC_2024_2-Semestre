@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <style type="text/css">
         body{ font: 18px sans-serif;
             background-color: #1D3736;
@@ -151,11 +152,14 @@
     <form  class="mx-auto mt-5 w-25" action="controle.php" method="post">
     <img src="img/atualizarepi.png" alt="erro" width="70" height="70">
         <h1 >Atualizar estoque</h1>
+
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-          <label class="input-group-text" for="epis_id">id do epi</label>
+            <label class="input-group-text" for="inputGroupSelect01">EPI</label>
           </div>
-          <input type="number" name="epis_id">
+          <select class="custom-select" id="inputGroupSelect01 epis" name="epis_id">
+            <option selected hidden>Escolher...</option>
+          </select>
         </div>
        
         <div class="input-group mb-3">
@@ -199,4 +203,33 @@
     </form>
     
 </body>
+
+<script>
+        let epis;
+        
+        console.log("teste");
+        $.ajax({
+        url:"controle.php",
+        type:"POST",
+        dataType:"json",
+        data:{action:"lista_epi"},
+        success:function(response){
+            response.forEach(element => {
+              console.log(element['nome']);
+              campoei = document.getElementById("inputGroupSelect01 epis");
+              campoei.innerHTML += '<option value="'+ element['id'] +'">'+ element['nome'] +'</option>';
+            });
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+         } 
+        })
+
+        
+
+      
+
+        
+</script>
 </html>

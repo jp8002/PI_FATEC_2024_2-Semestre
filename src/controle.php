@@ -123,6 +123,11 @@
             echo json_encode($epi->checar_minimo());
             
         }
+        else if($_POST["action"] == "lista_epi"){
+            $query = $almoxarife->ver_estoque("");
+            
+            echo json_encode($query->fetchAll());
+        }
     }
     
     else{
