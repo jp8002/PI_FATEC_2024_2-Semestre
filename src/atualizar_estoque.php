@@ -161,12 +161,13 @@
             <option selected hidden>Escolher...</option>
           </select>
         </div>
-       
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="fornecedor_idfornecedor">id do fornecedor</label>
+            <label class="input-group-text" for="inputGroupSelect01">Fornecedor</label>
           </div>
-          <input type="number" name="fornecedor_idfornecedor">
+          <select class="custom-select" id="inputGroupSelect01 fornecedor" name="fornecedor_idfornecedor">
+            <option selected hidden>Escolher...</option>
+          </select>
         </div>
 
         <div class="input-group mb-3">
@@ -225,7 +226,24 @@
             console.log(textStatus, errorThrown);
          } 
         })
+        
+        $.ajax({
+        url:"controle.php",
+        type:"POST",
+        dataType:"json",
+        data:{action:"listar_fornecedor"},
+        success:function(response){
+            response.forEach(element => {
+              console.log(element['nome']);
+              campofor = document.getElementById("inputGroupSelect01 fornecedor");
+              campofor.innerHTML += '<option value="'+ element['idfornecedor'] +'">'+ element['nome'] +'</option>';
+            });
 
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+         } 
+        })
         
 
       
