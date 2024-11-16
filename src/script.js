@@ -16,21 +16,3 @@ function notificacoes(){
          }
     })
 }
-
-setInterval(alertas, 500);
-
-function alertas(){
-    $.ajax({
-        url:"controle.php",
-        type:"POST",
-        dataType:"json",
-        data:{action:"aviso"},
-        success(response){
-            console.log(response)
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.log(textStatus, errorThrown);
-         }
-
-    })
-}

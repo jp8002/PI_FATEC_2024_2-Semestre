@@ -20,10 +20,9 @@ require 'controle.php';
         .wrapper{ width: 350px; padding: 20px; }
 
         .green-buttom {
-            box-sizing: border-box; 
-            display: block;
+            box-sizing: border-box;
             text-align: center;
-            line-height: 30px;
+            display: block;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -33,25 +32,51 @@ require 'controle.php';
             color: #1D3736;
         }
 
-        .red-buttom {
-            box-sizing: border-box; 
-            display: block;
+        .green-buttom:hover {
+            box-sizing: border-box;
             text-align: center;
-            line-height: 30px;
-            width: 10%; 
+            display: block;
+            width: 100%; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
             border: 0px solid #ccc; 
+            background-color: #1ec96d; 
+            color: #1D3736;
+            text-decoration: none;
+        }
+
+        .red-buttom:hover{
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #c01937; 
+            color: white;
+            text-decoration: none;
+        }
+
+        .red-buttom {
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc;  
             background-color: #E21E41; 
             color: white;
         }
 
         .orange-buttom {
-            box-sizing: border-box; 
-            display: block;
+            box-sizing: border-box;
             text-align: center;
-            line-height: 30px;
+            display: block;
             width: 100%; 
             height: 50px;
             padding: 10px; 
@@ -61,12 +86,39 @@ require 'controle.php';
             color: #1D3736;
         }
 
-        .blue-buttom {
-            box-sizing: border-box; 
-            display: block;
+        .orange-buttom:hover {
+            box-sizing: border-box;
             text-align: center;
-            line-height: 30px;
-            width: 20%; 
+            display: block;
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #d88a31; 
+            color: #1D3736;
+            text-decoration: none;
+        }
+
+        .blue-buttom:hover {
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
+            height: 50px;
+            padding: 10px; 
+            border-radius: 4px; 
+            border: 0px solid #ccc; 
+            background-color: #0c6ea2; 
+            color: white;
+            text-decoration: none;
+        }          
+
+        .blue-buttom {
+            box-sizing: border-box;
+            text-align: center;
+            display: block; 
+            width: 100%; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
@@ -76,7 +128,9 @@ require 'controle.php';
         }
 
         .input-base {
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            text-align: center;
+            display: block;
             width: 100%; 
             height: 40px;
             padding: 10px; 

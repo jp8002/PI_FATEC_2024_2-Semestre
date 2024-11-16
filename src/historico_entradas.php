@@ -128,7 +128,13 @@ $query = $almoxarife->ver_entradas();
 <img src="img/verestoque.png" alt="erro" width="70" height="70">
 </head>
 <body>
-
+<?php if ($_SESSION["usuario"] === "supervisor") :  ?>
+<a id="sino" href="#">
+    <span class="fa-regular fa-bell fa-2xl" style="color: black;"></span>
+    <span id="badge"></span>
+</a>
+<script src="script.js"></script>
+<?php endif ?>
 <div class="container-fluid">
 
         <div class="mx-auto mt-5 w-70">
