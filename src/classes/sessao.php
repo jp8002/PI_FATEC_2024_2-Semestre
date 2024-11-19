@@ -20,12 +20,11 @@
         }
 
         //criação da função logar
-        public function logar ($login, $senha, $pdo){
+        public function logar ($login, $senha, $pdo, $almoxarife): bool{
             session_start();
             
-            $stmt = $pdo->conn->prepare("select * from almoxarife where usuario = :login");
-            $stmt->execute([":login" =>$login]);
-            $row = $stmt->fetch();
+            
+            $row = $almoxarife->listar_almoxarife($login)->fetch();
 
             if($row){
                 echo $row["senha"];

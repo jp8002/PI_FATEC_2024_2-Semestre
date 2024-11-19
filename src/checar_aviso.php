@@ -24,7 +24,7 @@ require_once 'controle.php';
         <div class="mx-auto mt-5 w-50">
             <?php
                 
-                $almoxarife->ver_avisos();
+                $avisos->ver_avisos();
                 
                 
             ?>

@@ -198,6 +198,16 @@ $usuario = $_SESSION['usuario'];
 
         <?php if ($_SESSION["tipo_acesso"] === "supervisor") :  ?>
             <div class="form-group">
+            <a href="cadastrar_fornecedor.php" class="green-buttom">Cadastrar Fornecedor</a>
+            <span class="help-block"></span>
+            </div>
+
+            <div class="form-group">
+            <a href="cadastrar_funcionario.php" class="green-buttom">Cadastrar Funcionário</a>
+            <span class="help-block"></span>
+            </div>
+
+            <div class="form-group">
             <a href="checar_aviso.php" class="orange-buttom">Checar Alertas</a>
             <span class="help-block"></span>
             </div>
@@ -238,6 +248,11 @@ $usuario = $_SESSION['usuario'];
             <div class="form-group">
             <a href="atualizar_estoque.php" class="green-buttom">Atualizar Estoque</a>
             <span class="help-block"></span>
+            </div>
+
+            <div class="form-group">
+                <a href="remover_epi.php" class="green-buttom">Remover EPI</a>
+                <span class="help-block"></span>
             </div>
 
             

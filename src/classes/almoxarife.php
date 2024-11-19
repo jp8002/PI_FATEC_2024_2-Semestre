@@ -3,6 +3,8 @@
         private $stmt;
         private $pdo; 
 
+		public $epi;
+
         public function __construct($pdo){
             $this->pdo = $pdo;
         }
@@ -24,20 +26,11 @@
             return $this->stmt;
 		}
 
-        public function ver_estoque($pesquisa){
-			$pesquisa = $pesquisa."%";
-			if($pesquisa == "") $pesquisa = '%';
-			$this->stmt = $this->pdo->conn->prepare("call ver_estoque(:pesquisa);");
-			$this->stmt->execute([':pesquisa' => $pesquisa]);
-            return $this->stmt;
-		}
-
         public function registrar_saida() {
-			$this->stmt = $this->pdo->conn->prepare("SELECT estoque FROM epis WHERE id = :epis_id");
-			$this->stmt->execute([':epis_id' => $_POST["epis_id"]]);
-			$epi = $this->stmt->fetch(PDO::FETCH_ASSOC);
+			$this->epi->setId( $_POST["epis_id"]);
+			$this->epi->setQuantidade( $_POST["quantidade"]);
 			
-			if ($epi && $epi['estoque'] >= $_POST["quantidade"]) {
+			if ($this->epi->checar_estoque()) {
 				$this->stmt = $this->pdo->conn->prepare("call registrar_saida(:epis_id,:almoxarife_id,:quantidade,:funcionarios_idfuncionario);");
 
 				$this->stmt->execute([
@@ -77,98 +70,22 @@
 
 			return $this->stmt;
 		}
-		public function criar_aviso( $usuario, $almoxarife_id){
-			try{
-				$conteudo = $_POST['conteudo'];
-				$dia = date('Y-m-d');
 
-			
-				$this->stmt = $this->pdo->conn->prepare("insert into aviso (almoxarife_id, conteudo, data_aviso) values (:almoxarife_id, :conteudo, :data);");
-				$this->stmt->execute([
-					":almoxarife_id" => $almoxarife_id,
-					":conteudo"=>$conteudo,
-					":data"=> $dia
-				]);
-			}
-			catch(Exception $e){
-				echo "<div class='alert alert-danger' role='alert'>".
-					$e .
-				"</div>";
-			}
-		}
-
-		public function ver_avisos(){
-			
-			try{
-				$this->stmt = $this->pdo->conn->prepare("select a.idaviso, al.usuario , a.conteudo, a.data_aviso, a.visibilidade from aviso a, almoxarife al where a.almoxarife_id = al.id; ");
+		public function listar_almoxarife($tempUsuario = null){
+			if($tempUsuario == null) {
+				$this->stmt = $this->pdo->conn->prepare("SELECT * FROM almoxarife");
 				$this->stmt->execute();
-				while ($row = $this->stmt->fetch()) {
-					if($row["visibilidade"] == 1){
-						echo "<ul class='list-group'>";
-
-						echo " <li class='list-group-item d-flex justify-content-between align-items-center btn' data-toggle='collapse' onclick='desativar(". $row['idaviso'] .")' href='#collapse". $row['idaviso'] ."' role='button' aria-expanded='false' aria-controls='collapseExample'>".
-								$row['usuario']. " | ". $row['data_aviso'] 
-							."</li>"
-							;
-						
-						echo"</ul>";
-						
-						echo
-							"<div class='collapse' id='collapse". $row['idaviso'] ."'>
-								<div class='card card-body'>".
-									$row['conteudo']
-								."</div>
-							</div>"
-						;
-
-					}
-                    
-   
-                }
+				return $this->stmt;
 			}
-			catch(Exception $e){
-				echo  
-					"<div class='alert alert-danger' role='alert'>
-						Erro ao pesquisa: " . $e .
-					"</div>";
-			}
-		}
 
-		public function desativar_aviso($id){
-			$this->stmt = $this->pdo->conn->prepare("update aviso a SET a.visibilidade = 0 where a.idaviso = :id;");
+			$this->stmt = $this->pdo->conn->prepare("SELECT * FROM almoxarife WHERE	almoxarife.usuario = :tempUsuario");
 			$this->stmt->execute([
-			":id" => $id
+				":tempUsuario"=> $tempUsuario
 			]);
-		}
-
-		public function contagem_avisos(){
-			$this->stmt = $this->pdo->conn->prepare("select count(idaviso) as qtd from aviso where visibilidade = 1");
-			$this->stmt->execute();
-			return $this->stmt->fetch();
-		}
-
-		public function cadastrar_funcionario(){
-			$this->stmt = $this->pdo->conn->prepare("call cadastrar_funcionario(:nome)");
-			$this->stmt->execute([
-				":nome" => $_POST["nomeFuncionario"]
-			]);
-		}
-
-		public function cadastrar_fornecedor(){
-			$this->stmt = $this->pdo->conn->prepare("call cadastrar_fornecedor(:nome, :cnpj, :telefone)");
-			$this->stmt->execute([
-				":nome" => $_POST["nomeFornecedor"],
-				":cnpj" => $_POST["cnpj"],
-				":telefone" => $_POST["telefoneFornecedor"]
-			]);
-		}
-
-		public function listar_almoxarife(){
-			$this->stmt = $this->pdo->conn->prepare("SELECT * FROM almoxarife");
-			$this->stmt->execute();
 			return $this->stmt;
+			
 		}
 
-
+		
         
     }

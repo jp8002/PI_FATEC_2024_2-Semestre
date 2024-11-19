@@ -3,11 +3,11 @@
 require 'controle.php';
 
 if($_SERVER['REQUEST_METHOD'] =="POST"){
-    $query = ver_estoque($almoxarife, $_POST['pesquisa']);
+    $query = $estoque->ver_estoque( $_POST['pesquisa']);
 }
 
 else{
-    $query= ver_estoque($almoxarife, "");
+    $query= $estoque->ver_estoque(null);
 }
 
 ?>
