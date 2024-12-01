@@ -57,11 +57,28 @@ Antes de iniciar a instalação, verifique se você possui os seguintes requisit
 - [Git](https://git-scm.com/) instalado
 - [XAMPP](https://www.apachefriends.org/index.html) instalado no seu sistema
 
-## 1 - Clonar o Repositório
+## 1. Clonar o Repositório
 Clone o repositório contendo o código-fonte do aplicativo:
 
 ```git clone https://github.com/jp8002/PI_FATEC_2024_2-Semestre.git```
 
+## 2. Renomear e Mover Diretórios
+Acesse o diretório clonado e renomeie a pasta src para PI2V2, movendo-a para o diretório htdoocs do XAMPP:
+```
+cd ./PI_FATEC_2024_2-Semestre
+ren src PI2V2
+move PI2V2 C:\xampp\htdocs
+move .htaccess C:\xampp\htdocs
+```
+##3. Iniciar o XAMPP
+Inicie o XAMPP para rodar o servidor Apache e MySQL:
+````\xampp\xampp_start.exe````
+
+##4. Executar o Script SQL no MySQL
+Agora, execute o arquivo SQL para configurar o banco de dados
+
+## 5. Acessar o Aplicativo no Navegador
+Por fim, abra o navegador e acesse o aplicativo digitando localhost na barra de pesquisa
 
 <h2>TELAS</h2>
 <img src="./imagens/tela1.png" alt="tela 1"/>
