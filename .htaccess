@@ -1,0 +1,17 @@
+<Files pi.ini> 
+
+  order allow,deny 
+
+  deny from all 
+
+</Files> 
+RewriteEngine On
+RewriteBase /
+RedirectMatch ^/$ /PI2V2/
+# Se o arquivo ou diretório não existir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Encaminhe tudo para index.php
+RewriteRule ^(.*)$ /PI2V2/index.php [L,QSA]
+
