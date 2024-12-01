@@ -48,7 +48,7 @@
 
 # Guia de Implementação do Aplicativo
 
-Este guia descreve os passos necessários para configurar e rodar o aplicativo com base no script fornecido.
+Este guia descreve os passos necessários para configurar e rodar o aplicativo.
 
 ## Requisitos
 
