@@ -60,7 +60,7 @@ Antes de iniciar a instalação, verifique se você possui os seguintes requisit
 ## 1 - Clonar o Repositório
 Clone o repositório contendo o código-fonte do aplicativo:
 
-'''git clone https://github.com/jp8002/PI_FATEC_2024_2-Semestre.git''
+```git clone https://github.com/jp8002/PI_FATEC_2024_2-Semestre.git```
 
 
 <h2>TELAS</h2>
