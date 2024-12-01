@@ -46,6 +46,22 @@
 - [x] Consultar o histórico de devoluções.
 - [x] Permitir a criação de alertas. 
 
+# Guia de Implementação do Aplicativo
+
+Este guia descreve os passos necessários para configurar e rodar o aplicativo com base no script fornecido.
+
+## Requisitos
+
+Antes de iniciar a instalação, verifique se você possui os seguintes requisitos instalados em seu sistema:
+
+- [Git](https://git-scm.com/) instalado
+- [XAMPP](https://www.apachefriends.org/index.html) instalado no seu sistema
+
+## 1 - Clonar o Repositório
+Clone o repositório contendo o código-fonte do aplicativo:
+
+'''git clone https://github.com/jp8002/PI_FATEC_2024_2-Semestre.git''
+
 
 <h2>TELAS</h2>
 <img src="./imagens/tela1.png" alt="tela 1"/>
