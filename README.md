@@ -70,11 +70,11 @@ ren src PI2V2
 move PI2V2 C:\xampp\htdocs
 move .htaccess C:\xampp\htdocs
 ```
-##3. Iniciar o XAMPP
+## 3. Iniciar o XAMPP
 Inicie o XAMPP para rodar o servidor Apache e MySQL:
 ````\xampp\xampp_start.exe````
 
-##4. Executar o Script SQL no MySQL
+## 4. Executar o Script SQL no MySQL
 Agora, execute o arquivo SQL para configurar o banco de dados
 
 ## 5. Acessar o Aplicativo no Navegador
