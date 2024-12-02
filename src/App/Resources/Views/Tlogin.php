@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Acessar</title>
-    <link rel="icon" href="PI2V2/App/Resources/imagens/navicon.ico">
+    <link rel="icon" href="App/Resources/imagens/navicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 18px sans-serif;
@@ -143,12 +143,11 @@
             </div>
             <div class="form-group">
                 <center>
-                <button type="submit" class="blue-buttom">Enviar</button>
+                <button type="submit" class="blue-buttom">Entrar</button>
                 </center>
 
                 <span class="help-block"></span>
                 <div class="form-group">
-            <a href="/tCadastroAl" class="red-buttom">Retornar ao Cadastro</a>
             <span class="help-block"></span>
             </div>
             

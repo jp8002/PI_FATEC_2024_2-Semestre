@@ -1,9 +1,14 @@
-
+<?php
+  if(!isset($_SESSION['logado']) || !Auths::validar_supervisor($_SESSION["tipo_acesso"]))      
+  {
+      header("Location:/");
+  }
+?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar</title>
+    <title>Cadastrar Almoxarife</title>
     <link rel="icon" href="PI2V2/App/Resources/imagens/navicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -143,8 +148,7 @@
                 <span class="help-block"></span>
 
                 <span class="help-block"></span>
-                <!--<div class="form-group" style="background-color:blue">-->
-            <a href="/PI2V2/" class="blue-buttom">Realizar Login</a>
+                <a href="/Tmenu" class="red-buttom">Voltar</a>
             <span class="help-block"></span>
             </div>
             

@@ -18,16 +18,11 @@
             return true;
         }
 
-        // Declaração do método estático 'validar_supervisor'
-        public static function validar_supervisor($tipo){ 
-    
-            // Condição que verifica se o tipo fornecido não é igual a "supervisor"
+        public static function validar_supervisor($tipo){
             if ($tipo != "supervisor") {
-                return false; // Se o tipo não for "supervisor", retorna 'false'
+               return false;
             }
-        
-            return true; // Se o tipo for "supervisor", retorna 'true'
-        }
-        
+            return true;
+    }
 
 }

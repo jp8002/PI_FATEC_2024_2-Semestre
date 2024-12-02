@@ -197,6 +197,11 @@
 
         <?php if ($_SESSION["tipo_acesso"] === "supervisor") :  ?>
             <div class="form-group">
+            <a href="/tCadastroAl" class="green-buttom">Cadastrar Almoxarife</a>
+            <span class="help-block"></span>
+            </div>
+
+            <div class="form-group">
             <a href="/Tcadastrar_fornecedor" class="green-buttom">Cadastrar Fornecedor</a>
             <span class="help-block"></span>
             </div>
@@ -236,7 +241,7 @@
             
 
             <div class="form-group">
-            <a href="/Tregistrar_saida" class="green-buttom">Registrar saída</a>
+            <a href="/Tregistrar_saida" class="green-buttom">Registrar Saída</a>
             <span class="help-block"></span>
             </div>
 

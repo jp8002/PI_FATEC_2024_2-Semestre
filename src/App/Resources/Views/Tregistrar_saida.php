@@ -141,7 +141,7 @@
 <body>
     <div class="container mt-5">
     <img src="PI2V2/App/Resources/imagens/devolucao.png" alt="erro" width="80" height="80">
-        <h2>Registrar Retirada de EPI</h2>
+        <h2>Registrar Saída de EPI</h2>
         <img src="PI2V2/App/Resources/imagens/dottext.png" alt="erro" style="position: fixed; bottom: 0; left: 0; width: 100px; height: 40px;">
         <form action="/retirada_epi" method="post">
             <div class="form-group">
@@ -167,7 +167,7 @@
                 <input type="number" class="form-control" id="quantidade" name="quantidade" required>
             </div>
            
-            <button type="submit" class="blue-buttom" >Registrar retirada</button>
+            <button type="submit" class="blue-buttom" >Registrar Saída</button>
             <br>
             <div class="form-group">
             <a href="Tmenu" type="button" class="red-buttom" >Voltar</a>

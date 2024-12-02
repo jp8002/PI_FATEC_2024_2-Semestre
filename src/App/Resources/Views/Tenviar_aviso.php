@@ -52,7 +52,7 @@
             text-align: center;
             display: block;
             line-height: 30px;
-            width: 100%; 
+            width: 90px; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
@@ -93,7 +93,7 @@
             text-align: center;
             display: block;
             line-height: 30px; 
-            width: 100%; 
+            width: 150px; 
             height: 50px;
             padding: 10px; 
             border-radius: 4px; 
@@ -152,11 +152,12 @@
     <img src="PI2V2/App/Resources/imagens/enviaralerta.png" alt="erro" width="60" height="60">
         <h1>Envie um Alerta</h1>
         <img src="PI2V2/App/Resources/imagens/dottext.png" alt="erro" style="position: fixed; bottom: 0; left: 0; width: 100px; height: 40px;">
+        <br>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="conteudo">Conteúdo do alerta</label>
+            <label for="conteudo">Conteúdo do Alerta</label>
           </div>
-          <textarea rows="3" cols="80" name="conteudo"></textarea>
+          <textarea rows="5" cols="80" name="conteudo"></textarea>
         </div>
 
 

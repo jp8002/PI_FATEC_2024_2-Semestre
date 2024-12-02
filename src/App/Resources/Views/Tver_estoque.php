@@ -169,16 +169,6 @@
         </div>
 
 
-
-        <?php if ($_SESSION['tipo_acesso'] === "supervisor") :  ?>
-<a id="sino" href="#">
-    <span class="fa-regular fa-bell fa-2xl" style="color: black;"></span>
-    <span id="badge"></span>
-</a>
-<script src="script.js"></script>
-<?php endif ?>
-
-
 </form>
 <img src="PI2V2/App/Resources/imagens/dottext.png" alt="erro" style="position: fixed; bottom: 0; left: 0; width: 100px; height: 40px;">
 <div class="container-fluid">

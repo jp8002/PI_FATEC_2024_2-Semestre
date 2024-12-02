@@ -12,4 +12,5 @@ function notificacoes(){
         console.log("shdhskhdkjaksd");
     }
 
-}
+} 
+console.log ("asdasdadsada");
