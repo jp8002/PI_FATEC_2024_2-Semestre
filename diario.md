@@ -51,7 +51,7 @@ Participantes:
 
 <p>
 Assunto:<br>
-Durante a 3º reunião do grupo realizamos a estrega do logo e nome da nossa empresa juntamente com um protótipo de tela de login, foi adicionado também a função de listar os epis. 
+Durante a 3º reunião do grupo realizamos a entrega do logo e nome da nossa empresa juntamente com um protótipo de tela de login, foi adicionado também a função de listar os epis. 
 </p>
 
 <h2>20/10/2024</h2>
@@ -86,7 +86,7 @@ Assunto:<br>
 No dia 27/10, o grupo se reuniu para dar continuidade ao desenvolvimento do sistema de almoxarifado. Durante o encontro, foram testadas as seguintes funcionalidades que posteriormente na semana haviam sido feitas, são elas:
 </p>
 <ul>
-  <li>Registrar Retirada de EPI</li>
+  <li>Registrar Devolução de EPI</li>
   <li>Criar Aviso</li>
   <li>Desativar Aviso</li>
   <li>Contagem de Aviso</li>
