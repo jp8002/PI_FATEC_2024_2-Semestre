@@ -82,19 +82,51 @@ Agora, importe o arquivo SQL 'almoxarifado' presente na pasta sql, do projeto, p
 Por fim, abra o navegador e acesse o aplicativo digitando localhost na barra de pesquisa
 
 <h2>TELAS</h2>
+
+<label>Interface da página para realizar o Login</label>
 <img src="./imagens/Tela1.png" alt="error"/>
+
+<label>Interface da página de “Menu” do Usuário “adm” (um usuário do tipo supervisor)</label>
 <img src="./imagens/Tela2.png" alt="error"/>
+
+<label>Interface da página "Histórico de Devoluções"</label>
 <img src="./imagens/Tela3.png" alt="error"/>
+
+<label>Interface da página "Histórico de Saídas"</label>
 <img src="./imagens/Tela4.png" alt="error"/>
+
+<label>Interface da página "Ver Estoque"</label>
 <img src="./imagens/Tela5.png" alt="error"/>
+
+<label>Interface da página "Cadastrar Almoxarife"</label>
 <img src="./imagens/Tela6.png" alt="error"/>
+
+<label>Interface da página "Cadastrar Fornecedor"</label>
 <img src="./imagens/Tela7.png" alt="error"/>
+
+<label>Interface da página "Cadastrar Funcionário"</label>
 <img src="./imagens/Tela8.png" alt="error"/>
+
+<label>Interface da página "Registrar Compra"</label>
 <img src="./imagens/Tela9.png" alt="error"/>
+
+<label>Interface da página "Checar Alertas"</label>
 <img src="./imagens/Tela10.png" alt="error"/>
+
+<label>Interface da página "Menu" do usuário "almoxarife" (um usuário do tipo normal)</label>
 <img src="./imagens/Tela11.png" alt="error"/>
+
+<label>Interface da página "Registrar Devolução"</label>
 <img src="./imagens/Tela12.png" alt="error"/>
+
+<label>Interface da página "Registrar Saída"</label>
 <img src="./imagens/Tela13.png" alt="error"/>
+
+<label>Interface da página "Adicionar EPI"</label>
 <img src="./imagens/Tela14.png" alt="error"/>
+
+<label>Interface da página "Remover EPI"</label>
 <img src="./imagens/Tela15.png" alt="error"/>
+
+<label>Interface da página "Enviar Alerta"</label>
 <img src="./imagens/Tela16.png" alt="error"/>
