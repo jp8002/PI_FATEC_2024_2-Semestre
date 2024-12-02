@@ -82,4 +82,19 @@ Agora, importe o arquivo SQL 'almoxarifado' presente na pasta sql, do projeto, p
 Por fim, abra o navegador e acesse o aplicativo digitando localhost na barra de pesquisa
 
 <h2>TELAS</h2>
-<img src="./imagens/tela1.png" alt="tela 1"/>
+<img src="./imagens/Tela1.png" alt="error"/>
+<img src="./imagens/Tela2.png" alt="error"/>
+<img src="./imagens/Tela3.png" alt="error"/>
+<img src="./imagens/Tela4.png" alt="error"/>
+<img src="./imagens/Tela5.png" alt="error"/>
+<img src="./imagens/Tela6.png" alt="error"/>
+<img src="./imagens/Tela7.png" alt="error"/>
+<img src="./imagens/Tela8.png" alt="error"/>
+<img src="./imagens/Tela9.png" alt="error"/>
+<img src="./imagens/Tela10.png" alt="error"/>
+<img src="./imagens/Tela11.png" alt="error"/>
+<img src="./imagens/Tela12.png" alt="error"/>
+<img src="./imagens/Tela13.png" alt="error"/>
+<img src="./imagens/Tela14.png" alt="error"/>
+<img src="./imagens/Tela15.png" alt="error"/>
+<img src="./imagens/Tela16.png" alt="error"/>
