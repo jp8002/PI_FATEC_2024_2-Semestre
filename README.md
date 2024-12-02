@@ -72,10 +72,11 @@ move .htaccess C:\xampp\htdocs
 ```
 ## 3. Iniciar o XAMPP
 Inicie o XAMPP para rodar o servidor Apache e MySQL:
+
 ````\xampp\xampp_start.exe````
 
-## 4. Executar o Script SQL no MySQL
-Agora, execute o arquivo SQL para configurar o banco de dados
+## 4. Importar o Script SQL no MySQL
+Agora, importe o arquivo SQL 'almoxarifado' presente na pasta sql, do projeto, para criar o banco de dados
 
 ## 5. Acessar o Aplicativo no Navegador
 Por fim, abra o navegador e acesse o aplicativo digitando localhost na barra de pesquisa
